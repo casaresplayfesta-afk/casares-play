@@ -79,7 +79,7 @@
     <div class="pricing">
       <div class="pkg">
         <h3>30 pelúcias + máquina</h3>
-        <div class="price">R$ 1.100</div>
+        <div class="price">R$ 1.000</div>
         <ul>
           <li>30 pelúcias inclusas</li>
           <li>Uso da máquina por 4 horas</li>
