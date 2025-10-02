@@ -30,7 +30,8 @@
       box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
     header img{
-      max-width:180px;
+      max-width:120px;
+      height:auto;
       display:block;
       margin:0 auto 12px;
     }
@@ -81,9 +82,7 @@
 </head>
 <body>
   <header>
-    <a href='https://postimg.cc/BXjV2LYc' target='_blank'>
-      <img src='https://i.postimg.cc/65cxJCCS/Whats-App-Image-2025-09-24-at-18-19-38.jpg' border='0' alt='Logo CasaRes Play'/>
-    </a>
+    <img src='https://i.postimg.cc/65cxJCCS/Whats-App-Image-2025-09-24-at-18-19-38.jpg' alt='Logo CasaRes Play'/>
     <div class="container">
       <h1>CasaRes Play</h1>
       <p class="lead">Aluguel de máquinas de pelúcia para festas e eventos — entrega grátis em regiões atendidas.</p>
