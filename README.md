@@ -29,12 +29,6 @@
       z-index:1000;
       box-shadow:0 4px 12px rgba(0,0,0,0.15);
     }
-    header img{
-      max-width:120px;
-      height:auto;
-      display:block;
-      margin:0 auto 12px;
-    }
     .container{max-width:1000px;margin:0 auto;padding:24px}
     h1{
       margin:0;
@@ -82,7 +76,6 @@
 </head>
 <body>
   <header>
-    <img src='https://i.postimg.cc/65cxJCCS/Whats-App-Image-2025-09-24-at-18-19-38.jpg' alt='Logo CasaRes Play'/>
     <div class="container">
       <h1>CasaRes Play</h1>
       <p class="lead">Aluguel de máquinas de pelúcia para festas e eventos — entrega grátis em regiões atendidas.</p>
@@ -173,41 +166,4 @@
     <section class="details">
       <div>
         <h2>Informações importantes</h2>
-        <p class="small">Tempo de locação padrão: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato e verificamos disponibilidade e custo.</p>
-
-        <h3 style="margin-top:12px;background: linear-gradient(90deg,#f72585,#7209b7,#3a0ca3,#4361ee,#4cc9f0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Onde entregamos</h3>
-        <p>Paracambi, Seropédica, Japeri e Conrado — entrega grátis nessas localidades.</p>
-
-        <h3 style="margin-top:12px;background: linear-gradient(90deg,#06d6a0,#118ab2,#9d4edd,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Como reservar</h3>
-        <ol>
-          <li>Entre em contato por WhatsApp/telefone: <a href="tel:+5521968884003">(21) 96888-4003</a>.</li>
-          <li>Combine data, horário e endereço de entrega.</li>
-          <li>Pagamento: na hora de receber a máquina (dinheiro ou combinado por transferência).</li>
-        </ol>
-
-        <h3 style="margin-top:12px;background: linear-gradient(90deg,#ff9a76,#ffd166,#06d6a0,#118ab2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Dúvidas frequentes</h3>
-        <p class="small"><strong>Posso escolher as pelúcias?</strong> Sim — temos opções variadas; escolha disponível conforme estoque no dia. <br>
-        <strong>Preciso operar a máquina?</strong> Enviamos instruções e podemos demonstrar no local.</p>
-      </div>
-
-      <aside class="map-card">
-        <h3 style="background: linear-gradient(90deg,#ff6b6b,#f9c74f,#43aa8b,#577590);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Atendimento</h3>
-        <p class="small">Faça sua reserva ou tire dúvidas:</p>
-        <p style="margin:8px 0;font-weight:700">(21) 96888-4003</p>
-        <p class="small">ou envie e‑mail: <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></p>
-
-        <div style="margin-top:12px">
-          <strong>Observação:</strong>
-          <p class="small">Garantimos entrega e retirada dentro do horário combinado. Recomendamos confirmar endereço com antecedência.</p>
-        </div>
-      </aside>
-    </section>
-
-    <footer>
-      <div style="max-width:900px;margin:0 auto">
-        <p>© CasaRes Play — Aluguel de máquinas de pelúcia. Entregamos em Paracambi, Seropédica, Japeri e Conrado. <br>Telefone: (21) 96888-4003 — E-mail: casaresplayfesta@gmail.com</p>
-      </div>
-    </footer>
-  </main>
-</body>
-</html>
+        <p class="small">Tempo de locação padrão: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato e
