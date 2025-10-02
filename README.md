@@ -16,13 +16,12 @@
 
     header {
       background: linear-gradient(90deg, var(--accent), #ff9a76);
-      color: white; text-align: center; padding: 12px;
+      color: white; text-align: center; padding: 20px 12px;
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
-    header img { max-width: 160px; display: block; margin: 0 auto 6px; border-radius: 8px; }
-    header h1 { font-size: 20px; margin-bottom: 2px; }
-    header .lead { font-size: 13px; color: #fff; opacity: .9; }
+    header h1 { font-size: 24px; margin-bottom: 4px; }
+    header .lead { font-size: 14px; color: #fff; opacity: .9; }
 
     main { padding: 120px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
@@ -71,7 +70,6 @@
 </head>
 <body>
   <header>
-    <img src="https://i.postimg.cc/65cxJCCS/Whats-App-Image-2025-09-24-at-18-19-38.jpg" alt="Logo da CasaRes Play - Aluguel de máquinas de pelúcia">
     <h1>CasaRes Play</h1>
     <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
   </header>
