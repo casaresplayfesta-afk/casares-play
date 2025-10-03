@@ -66,6 +66,42 @@
       .details{ grid-template-columns: 1fr; }
       .pricing { gap: 20px; }
     }
+
+    /* Botão flutuante WhatsApp premium */
+    .whatsapp-premium {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 16px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 10000;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
+      animation: glowPulse 2s infinite;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .whatsapp-premium img {
+      width: 26px;
+      height: 26px;
+    }
+
+    .whatsapp-premium:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 30px rgba(37, 211, 102, 0.9), 0 0 40px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes glowPulse {
+      0% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+      50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+    }
   </style>
 </head>
 <body>
@@ -146,6 +182,14 @@
       </aside>
     </section>
   </main>
+
+  <!-- Botão flutuante WhatsApp premium -->
+  <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" 
+     target="_blank" 
+     class="whatsapp-premium">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+     WhatsApp
+  </a>
 
   <footer>
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
