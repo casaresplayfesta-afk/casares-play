@@ -18,7 +18,9 @@
       line-height: 1.5; 
       letter-spacing: 0.5px; 
       -webkit-font-smoothing: antialiased; 
-      background: url('4824933d-656f-4638-adad-29f41af62074.jpg') no-repeat center center fixed;
+
+      /* Fundo com imagem online */
+      background: url('https://images.unsplash.com/photo-1602524815556-41f0126b68e2?crop=entropy&cs=tinysrgb&fit=crop&h=1080&w=1920') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     }
