@@ -18,14 +18,10 @@
       line-height: 1.5; 
       letter-spacing: 0.5px; 
       -webkit-font-smoothing: antialiased; 
-
-      /* Fundo com imagem (coloque a imagem na mesma pasta do HTML ou ajuste o caminho) */
       background: url('4824933d-656f-4638-adad-29f41af62074.jpg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     }
-
-    /* Overlay escuro para melhorar contraste */
     body::before {
       content: "";
       position: fixed;
@@ -35,7 +31,7 @@
     }
 
     header {
-      background: rgba(0,0,0,0.7); /* semi-transparente sobre a imagem */
+      background: rgba(0,0,0,0.7);
       color: white; text-align: center; padding: 20px 12px;
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -66,15 +62,13 @@
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-      height: 100%;
+      min-height: 360px;
       text-align: center;
     }
 
-    .pricing .pkg { min-height: 360px; }
-
     .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
-    .pkg h3 { margin: 0 0 6px; font-size: 16px; color: var(--dark); }
-    .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+    .pkg h3 { margin: 0 0 6px; font-size: 16px; color: var(--dark); text-align: center; }
+    .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; text-align: center; }
 
     .pkg ul {
       padding-left: 18px;
@@ -82,6 +76,7 @@
       font-size: 14px;
       color: #111;
       text-align: left;
+      width: 100%;
     }
 
     .cta {
