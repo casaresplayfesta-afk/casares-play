@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
-    /* Imagem de fundo */
+    /* Imagem de fundo com blur e escurecida */
     .fundo {
       position: fixed;
       top: 0;
@@ -15,7 +15,8 @@
       object-fit: cover;
       z-index: -1;
       opacity: 0.9;
-      filter: brightness(0.8); /* escurece levemente para destacar o texto */
+      filter: brightness(0.7) blur(5px);
+      transition: filter 0.3s;
     }
 
     :root {
@@ -37,10 +38,21 @@
     header h1 { font-size: 24px; margin-bottom: 4px; }
     header .lead { font-size: 14px; color: #fff; opacity: .9; }
 
-    main { padding: 120px 16px 40px; max-width: 1100px; margin: 0 auto; }
+    main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
-    h2 { font-size: 20px; margin-bottom: 10px; color: var(--dark); text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
-    h3 { color: var(--dark); text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
+    /* Título Pacotes com fundo */
+    h2.pacotes {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: inline-block;
+      color: #111;
+      text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+    }
+
+    h2, h3 { text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
+    h3 { color: var(--dark); }
 
     .pricing {
       display: grid;
@@ -154,7 +166,7 @@
   </header>
 
   <main>
-    <h2>Pacotes com máquina (4 horas)</h2>
+    <h2 class="pacotes">Pacotes com máquina (4 horas)</h2>
     <div class="pricing">
       <div class="pkg">
         <h3>Somente máquina</h3>
