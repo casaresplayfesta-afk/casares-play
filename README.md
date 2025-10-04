@@ -1,4 +1,3 @@
-[codigo2.html](https://github.com/user-attachments/files/22704611/codigo2.html)
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -6,16 +5,18 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
+    /* Imagem de fundo */
     .fundo {
-  position: fixed;     /* Fixa a imagem no fundo */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* Faz a imagem cobrir toda a tela */
-  z-index: -1;         /* Coloca a imagem atrás de todo o conteúdo */
-  opacity: 0.9;        /* Ajuste a transparência (0.0 a 1.0) */
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.9;
+      filter: brightness(0.8); /* escurece levemente para destacar o texto */
+    }
 
     :root {
       --accent: #ff6b6b;
@@ -23,6 +24,7 @@
       --muted: #6b7280;
       --card: #ffffff;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: #f8fafc; color: #0b1220; line-height: 1.5; letter-spacing: 0.5px; -webkit-font-smoothing: antialiased; }
 
@@ -37,7 +39,8 @@
 
     main { padding: 120px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
-    h2 { font-size: 20px; margin-bottom: 10px; color: var(--dark); }
+    h2 { font-size: 20px; margin-bottom: 10px; color: var(--dark); text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
+    h3 { color: var(--dark); text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
 
     .pricing {
       display: grid;
@@ -48,55 +51,52 @@
 
     /* Pacotes */
     .pkg {
-      background: white; 
+      background: rgba(255,255,255,0.95);
       border-radius: 12px; 
       padding: 16px; 
-      border: 1px solid #eef2f6; 
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06); 
-      transition: 0.3s;
-
+      border: 1px solid #ddd; 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15); 
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* botão no final */
-      align-items: center; /* centraliza horizontalmente */
-      height: 100%; 
-      text-align: center; /* centraliza título e preço */
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      min-height: 360px; 
     }
 
-    .pricing .pkg {
-      /* Garante mesma altura para todos */
-      min-height: 360px;
-    }
-
-    .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
-    .pkg h3 { margin: 0 0 6px; font-size: 16px; color: #111; }
+    .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
+    .pkg h3 { margin: 0 0 6px; font-size: 16px; }
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
 
-    /* Lista com bullets no canto */
     .pkg ul {
       padding-left: 18px;
       margin: 8px 0;
       font-size: 14px;
-      color: #444;
-      text-align: left; /* itens alinhados à esquerda */
+      color: #111;
+      text-align: left;
     }
 
     .cta {
       display: inline-block; margin-top: 10px; padding: 10px 14px; border-radius: 10px;
       background: var(--accent); color: white; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s;
       text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
     .cta:hover { opacity: 0.9; }
 
     .details {
       display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-top: 24px;
     }
-    .contact-card {
-      background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #eef2f6;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    .details > div, .contact-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
+
     .contact-card h3 { margin-bottom: 6px; color: var(--accent); }
-    .contact-line { margin: 6px 0; font-size: 14px; }
+    .contact-line { margin: 6px 0; font-size: 14px; color: #111; }
     .contact-line a { text-decoration: none; color: var(--dark); }
     .contact-line a:hover { color: var(--accent); text-decoration: underline; }
 
@@ -143,7 +143,6 @@
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
   </style>
-
 </head>
 <body>
   <!-- Imagem de fundo -->
@@ -157,7 +156,6 @@
   <main>
     <h2>Pacotes com máquina (4 horas)</h2>
     <div class="pricing">
-      <!-- Pacote Somente Máquina (em primeiro) -->
       <div class="pkg">
         <h3>Somente máquina</h3>
         <div class="price">R$ 500</div>
