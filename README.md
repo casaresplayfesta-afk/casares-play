@@ -67,11 +67,19 @@
       .pricing { gap: 20px; }
     }
 
-    /* Botão flutuante WhatsApp premium */
-    .whatsapp-premium {
+    /* Container dos botões flutuantes */
+    .social-buttons {
       position: fixed;
       bottom: 20px;
       right: 20px;
+      display: flex;
+      flex-direction: row; /* lado a lado */
+      gap: 12px;
+      z-index: 10000;
+    }
+
+    /* Botão WhatsApp */
+    .whatsapp-premium {
       background-color: #25D366;
       color: white;
       padding: 16px 20px;
@@ -81,26 +89,45 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      z-index: 10000;
       box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
       animation: glowPulse 2s infinite;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .whatsapp-premium img {
-      width: 26px;
-      height: 26px;
-    }
-
+    .whatsapp-premium img { width: 26px; height: 26px; }
     .whatsapp-premium:hover {
       transform: scale(1.15);
       box-shadow: 0 0 30px rgba(37, 211, 102, 0.9), 0 0 40px rgba(37, 211, 102, 0.6);
     }
-
     @keyframes glowPulse {
       0% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
       50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
       100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+    }
+
+    /* Botão Instagram */
+    .instagram-premium {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+      padding: 16px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 20px rgba(220, 39, 67, 0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: glowPulseInsta 2s infinite;
+    }
+    .instagram-premium img { width: 26px; height: 26px; }
+    .instagram-premium:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 30px rgba(220, 39, 67, 0.9), 0 0 40px rgba(220, 39, 67, 0.6);
+    }
+    @keyframes glowPulseInsta {
+      0% { transform: scale(1); box-shadow: 0 0 20px rgba(220, 39, 67, 0.6); }
+      50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(220, 39, 67, 0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 20px rgba(220, 39, 67, 0.6); }
     }
   </style>
 </head>
@@ -177,19 +204,28 @@
       <aside class="contact-card">
         <h3>Contato</h3>
         <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
-        <div class="contact-line"><strong>E‑mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
+        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
         <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
       </aside>
     </section>
   </main>
 
-  <!-- Botão flutuante WhatsApp premium -->
-  <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" 
-     target="_blank" 
-     class="whatsapp-premium">
-     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-     WhatsApp
-  </a>
+  <!-- Botões flutuantes -->
+  <div class="social-buttons">
+    <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" 
+       target="_blank" 
+       class="whatsapp-premium">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+       WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/diversao_em_festas_?utm_source=ig_web_button_share_sheet&igsh=c3U2a2xudTFibTE5" 
+       target="_blank" 
+       class="instagram-premium">
+       <img src="https://upload.wikimedia.org/commons/a/a5/Instagram_icon.png" alt="Instagram">
+       Instagram
+    </a>
+  </div>
 
   <footer>
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
