@@ -19,8 +19,8 @@
       letter-spacing: 0.5px; 
       -webkit-font-smoothing: antialiased; 
 
-      /* Fundo com imagem */
-      background: url('/mnt/data/4824933d-656f-4638-adad-29f41af62074.jpg') no-repeat center center fixed;
+      /* Fundo com imagem (coloque a imagem na mesma pasta do HTML ou ajuste o caminho) */
+      background: url('4824933d-656f-4638-adad-29f41af62074.jpg') no-repeat center center fixed;
       background-size: cover;
       position: relative;
     }
