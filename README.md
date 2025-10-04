@@ -34,8 +34,17 @@
       margin-top: 16px;
     }
     .pkg {
-      background: white; border-radius: 12px; padding: 16px; border: 1px solid #eef2f6; text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.06); transition: 0.3s;
+      background: white; 
+      border-radius: 12px; 
+      padding: 16px; 
+      border: 1px solid #eef2f6; 
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06); 
+      transition: 0.3s;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
     }
     .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
     .pkg h3 { margin: 0 0 6px; font-size: 16px; color: #111; }
