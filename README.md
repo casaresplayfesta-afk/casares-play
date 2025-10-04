@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Casarres Play - Aluguel de Máquina de Pelúcia</title>
+  <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
     :root {
       --accent: #ff6b6b;
