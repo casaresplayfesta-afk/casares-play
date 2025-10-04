@@ -19,21 +19,7 @@
       color: white; text-align: center; padding: 20px 12px;
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      display: flex; flex-direction: column; align-items: center;
     }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-container img {
-      width: 60px;
-      height: auto;
-      border-radius: 12px;
-    }
-
     header h1 { font-size: 24px; margin-bottom: 4px; }
     header .lead { font-size: 14px; color: #fff; opacity: .9; }
 
@@ -120,10 +106,7 @@
 </head>
 <body>
   <header>
-    <div class="logo-container">
-      <img src="logo-casaresplay.png" alt="Logo CasaRes Play">
-      <h1>CasaRes Play</h1>
-    </div>
+    <h1>CasaRes Play</h1>
     <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
   </header>
 
@@ -194,7 +177,7 @@
       <aside class="contact-card">
         <h3>Contato</h3>
         <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
-        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
+        <div class="contact-line"><strong>E‑mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
         <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
       </aside>
     </section>
