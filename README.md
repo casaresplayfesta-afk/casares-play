@@ -106,7 +106,7 @@
 </head>
 <body>
   <header>
-    <h1>CasaRes Play</h1>
+    <h1>Casares Play</h1>
     <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
   </header>
 
