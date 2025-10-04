@@ -10,6 +10,7 @@
       --dark: #0f1724;
       --muted: #6b7280;
       --card: #ffffff;
+      --whatsapp: #25D366;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: #f8fafc; color: #0b1220; line-height: 1.5; letter-spacing: 0.5px; -webkit-font-smoothing: antialiased; }
@@ -67,14 +68,60 @@
       .pricing { gap: 20px; }
     }
 
-    /* Botão flutuante WhatsApp premium */
+    /* ----- Efeito de "pulo" tipo WhatsApp ----- */
+    @keyframes whatsappJump {
+      0%   { transform: translateY(0) scale(1); }
+      20%  { transform: translateY(-8px) scale(1.03); }
+      40%  { transform: translateY(0) scale(0.99); }
+      60%  { transform: translateY(-4px) scale(1.015); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    /* Efeito secundário leve (borda/ombre) */
+    @keyframes whatsappGlow {
+      0% { box-shadow: 0 6px 18px rgba(37, 211, 102, 0.18); }
+      50% { box-shadow: 0 10px 28px rgba(37, 211, 102, 0.28); }
+      100% { box-shadow: 0 6px 18px rgba(37, 211, 102, 0.18); }
+    }
+
+    /* Classe aplicada aos botões de reservar que vão "pular" */
+    .whatsapp-reserve {
+      background: var(--whatsapp);
+      color: white;
+      border-radius: 10px;
+      padding: 10px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.18);
+      transform-origin: center bottom;
+      /* animação principal */
+      animation: whatsappJump 2.2s cubic-bezier(.34,.9,.2,1) infinite,
+                 whatsappGlow 2.2s ease-in-out infinite;
+      transition: transform .16s;
+    }
+
+    /* Pequena diferença entre botões usando nth-child (delay) para parecer mais orgânico */
+    .pkg:nth-child(1) .whatsapp-reserve { animation-delay: 0s, 0s; }
+    .pkg:nth-child(2) .whatsapp-reserve { animation-delay: 0.35s, 0.35s; }
+    .pkg:nth-child(3) .whatsapp-reserve { animation-delay: 0.7s, 0.7s; }
+    .pkg:nth-child(4) .whatsapp-reserve { animation-delay: 1.05s, 1.05s; }
+
+    .whatsapp-reserve:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 12px 36px rgba(37, 211, 102, 0.32);
+    }
+
+    /* Botão flutuante WhatsApp premium (mantive e deixei com animação diferente + pulso) */
     .whatsapp-premium {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #25D366;
+      background-color: var(--whatsapp);
       color: white;
-      padding: 16px 20px;
+      padding: 12px 16px;
       border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
@@ -82,9 +129,10 @@
       align-items: center;
       gap: 10px;
       z-index: 10000;
-      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
-      animation: glowPulse 2s infinite;
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.22);
+      transform-origin: center bottom;
+      animation: whatsappJump 2.2s cubic-bezier(.34,.9,.2,1) infinite,
+                 whatsappGlow 2.2s ease-in-out infinite;
     }
 
     .whatsapp-premium img {
@@ -93,14 +141,16 @@
     }
 
     .whatsapp-premium:hover {
-      transform: scale(1.15);
-      box-shadow: 0 0 30px rgba(37, 211, 102, 0.9), 0 0 40px rgba(37, 211, 102, 0.6);
+      transform: translateY(-6px) scale(1.08);
+      box-shadow: 0 14px 40px rgba(37, 211, 102, 0.35);
     }
 
-    @keyframes glowPulse {
-      0% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
-      50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
-      100% { transform: scale(1); box-shadow: 0 0 20px rgba(37, 211, 102, 0.6); }
+    /* Ajuste visual para CTAs que não são WhatsApp (manter original) */
+    .cta:not(.whatsapp-reserve) {
+      background: var(--accent);
+      color: white;
+      border-radius: 10px;
+      padding: 10px 14px;
     }
   </style>
 </head>
@@ -121,7 +171,7 @@
           <li>Uso da máquina por 4 horas</li>
           <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
         </ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2030%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+        <a class="whatsapp-reserve" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2030%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
       </div>
 
       <div class="pkg">
@@ -132,7 +182,7 @@
           <li>Uso da máquina por 4 horas</li>
           <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
         </ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2050%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+        <a class="whatsapp-reserve" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2050%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
       </div>
 
       <div class="pkg">
@@ -143,7 +193,7 @@
           <li>Uso da máquina por 4 horas</li>
           <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
         </ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2080%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+        <a class="whatsapp-reserve" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2080%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
       </div>
 
       <div class="pkg">
@@ -154,7 +204,7 @@
           <li>Sem pelúcias inclusas</li>
           <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
         </ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20apenas%20a%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+        <a class="whatsapp-reserve" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20apenas%20a%20máquina" target="_blank">Reservar pelo WhatsApp</a>
       </div>
     </div>
 
@@ -177,7 +227,7 @@
       <aside class="contact-card">
         <h3>Contato</h3>
         <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
-        <div class="contact-line"><strong>E‑mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
+        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
         <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
       </aside>
     </section>
