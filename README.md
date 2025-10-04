@@ -34,7 +34,7 @@
       margin-top: 16px;
     }
 
-    /* Ajuste principal para centralizar nome, preço e botão */
+    /* Pacotes */
     .pkg {
       background: white; 
       border-radius: 12px; 
@@ -45,16 +45,24 @@
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* empurra o botão para o final */
+      justify-content: space-between; /* botão no final */
       align-items: center; /* centraliza horizontalmente */
       height: 100%;
-      text-align: center; /* centraliza texto */
+      text-align: center; /* centraliza título e preço */
     }
 
     .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
     .pkg h3 { margin: 0 0 6px; font-size: 16px; color: #111; }
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
-    .pkg ul { padding-left: 18px; margin: 8px 0; font-size: 14px; color: #444; text-align: center; }
+
+    /* Lista com bullets no canto */
+    .pkg ul {
+      padding-left: 18px;
+      margin: 8px 0;
+      font-size: 14px;
+      color: #444;
+      text-align: left; /* itens alinhados à esquerda */
+    }
 
     .cta {
       display: inline-block; margin-top: 10px; padding: 10px 14px; border-radius: 10px;
@@ -93,7 +101,7 @@
     }
 
     .floating-buttons a {
-      background-color: #25D366; /* cor padrão (WhatsApp) */
+      background-color: #25D366;
       width: 55px;
       height: 55px;
       border-radius: 50%;
@@ -199,14 +207,11 @@
     </section>
   </main>
 
-  <!-- Botões flutuantes WhatsApp + Instagram -->
   <div class="floating-buttons">
     <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
-
-    <a href="https://www.instagram.com/diversao_em_festas_?utm_source=ig_web_button_share_sheet&igsh=c3U2a2xudTFibTE5" 
-       target="_blank" class="instagram">
+    <a href="https://www.instagram.com/diversao_em_festas_?utm_source=ig_web_button_share_sheet&igsh=c3U2a2xudTFibTE5" target="_blank" class="instagram">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
     </a>
   </div>
