@@ -66,11 +66,125 @@
       .details{ grid-template-columns: 1fr; }
       .pricing { gap: 20px; }
     }
-<!-- Botões flutuantes WhatsApp + Instagram -->
-  <style>
-    /* (estilos que te mandei aqui) */
-  </style>
 
+    /* Botões flutuantes */
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 12px;
+      z-index: 10000;
+    }
+
+    .floating-buttons a {
+      background-color: #25D366; /* cor padrão (WhatsApp) */
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .floating-buttons a img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .floating-buttons a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    }
+
+    /* Cores específicas */
+    .floating-buttons .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CasaRes Play</h1>
+    <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
+  </header>
+
+  <main>
+    <h2>Pacotes com máquina (4 horas)</h2>
+    <div class="pricing">
+      <div class="pkg">
+        <h3>30 pelúcias + máquina</h3>
+        <div class="price">R$ 1.000</div>
+        <ul>
+          <li>30 pelúcias inclusas</li>
+          <li>Uso da máquina por 4 horas</li>
+          <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
+        </ul>
+        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2030%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+      </div>
+
+      <div class="pkg">
+        <h3>50 pelúcias + máquina</h3>
+        <div class="price">R$ 1.300</div>
+        <ul>
+          <li>50 pelúcias inclusas</li>
+          <li>Uso da máquina por 4 horas</li>
+          <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
+        </ul>
+        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2050%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+      </div>
+
+      <div class="pkg">
+        <h3>80 pelúcias + máquina</h3>
+        <div class="price">R$ 1.750</div>
+        <ul>
+          <li>80 pelúcias inclusas</li>
+          <li>Uso da máquina por 4 horas</li>
+          <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
+        </ul>
+        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2080%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+      </div>
+
+      <div class="pkg">
+        <h3>Somente máquina</h3>
+        <div class="price">R$ 500</div>
+        <ul>
+          <li>Uso da máquina por 4 horas</li>
+          <li>Sem pelúcias inclusas</li>
+          <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
+        </ul>
+        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20apenas%20a%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+      </div>
+    </div>
+
+    <section class="details">
+      <div>
+        <h2>Informações importantes</h2>
+        <p>Tempo de locação: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato.</p>
+
+        <h3 style="margin-top:12px">Onde entregamos</h3>
+        <p>Paracambi, Seropédica, Japeri e Conrado — frete grátis nessas localidades.</p>
+
+        <h3 style="margin-top:12px">Como reservar</h3>
+        <ol>
+          <li>Entre em contato por WhatsApp: <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a>.</li>
+          <li>Combine data, horário e endereço de entrega.</li>
+          <li>Pagamento: na hora de receber a máquina.</li>
+        </ol>
+      </div>
+
+      <aside class="contact-card">
+        <h3>Contato</h3>
+        <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
+        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Botões flutuantes WhatsApp + Instagram -->
   <div class="floating-buttons">
     <!-- Botão WhatsApp -->
     <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" target="_blank">
@@ -87,3 +201,5 @@
   <footer>
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
   </footer>
+</body>
+</html>
