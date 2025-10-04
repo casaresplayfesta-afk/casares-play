@@ -1,4 +1,4 @@
-[Uploading codigo1.html…]()
+[codigo2.html](https://github.com/user-attachments/files/22704611/codigo2.html)
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
+    .fundo {
+  position: fixed;     /* Fixa a imagem no fundo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* Faz a imagem cobrir toda a tela */
+  z-index: -1;         /* Coloca a imagem atrás de todo o conteúdo */
+  opacity: 0.9;        /* Ajuste a transparência (0.0 a 1.0) */
+}
+
     :root {
       --accent: #ff6b6b;
       --dark: #0f1724;
@@ -132,16 +143,6 @@
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
   </style>
-  .fundo {
-  position: fixed;     /* Fixa a imagem no fundo */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* Faz a imagem cobrir toda a tela */
-  z-index: -1;         /* Coloca a imagem atrás de todo o conteúdo */
-  opacity: 0.9;        /* Ajuste a transparência (0.0 a 1.0) */
-}
 
 </head>
 <body>
