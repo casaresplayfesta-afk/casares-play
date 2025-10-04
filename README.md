@@ -114,6 +114,19 @@
   <main>
     <h2>Pacotes com máquina (4 horas)</h2>
     <div class="pricing">
+      <!-- Pacote Somente Máquina (em primeiro) -->
+      <div class="pkg">
+        <h3>Somente máquina</h3>
+        <div class="price">R$ 500</div>
+        <ul>
+          <li>Uso da máquina por 4 horas</li>
+          <li>Sem pelúcias inclusas</li>
+          <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
+        </ul>
+        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20apenas%20a%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+      </div>
+
+      <!-- Pacotes com pelúcias -->
       <div class="pkg">
         <h3>30 pelúcias + máquina</h3>
         <div class="price">R$ 1.000</div>
@@ -145,17 +158,6 @@
           <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
         </ul>
         <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2080%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
-      </div>
-
-      <div class="pkg">
-        <h3>Somente máquina</h3>
-        <div class="price">R$ 500</div>
-        <ul>
-          <li>Uso da máquina por 4 horas</li>
-          <li>Sem pelúcias inclusas</li>
-          <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
-        </ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20apenas%20a%20máquina" target="_blank">Reservar pelo WhatsApp</a>
       </div>
     </div>
 
