@@ -8,32 +8,14 @@
     :root {
       --accent: #ff6b6b;
       --dark: #0f1724;
-      --muted: #ffffff;
-      --card: rgba(255, 255, 255, 0.95);
+      --muted: #6b7280;
+      --card: #ffffff;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; 
-      color: var(--muted);
-      line-height: 1.5; 
-      letter-spacing: 0.5px; 
-      -webkit-font-smoothing: antialiased; 
-
-      /* Fundo com imagem online */
-      background: url('https://images.unsplash.com/photo-1602524815556-41f0126b68e2?crop=entropy&cs=tinysrgb&fit=crop&h=1080&w=1920') no-repeat center center fixed;
-      background-size: cover;
-      position: relative;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top:0; left:0; right:0; bottom:0;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
-    }
+    body { font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: #f8fafc; color: #0b1220; line-height: 1.5; letter-spacing: 0.5px; -webkit-font-smoothing: antialiased; }
 
     header {
-      background: rgba(0,0,0,0.7);
+      background: linear-gradient(90deg, var(--accent), #ff9a76);
       color: white; text-align: center; padding: 20px 12px;
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
@@ -41,9 +23,9 @@
     header h1 { font-size: 24px; margin-bottom: 4px; }
     header .lead { font-size: 14px; color: #fff; opacity: .9; }
 
-    main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
+    main { padding: 120px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
-    h2 { font-size: 20px; margin-bottom: 10px; color: #fff; }
+    h2 { font-size: 20px; margin-bottom: 10px; color: var(--dark); }
 
     .pricing {
       display: grid;
@@ -52,33 +34,39 @@
       margin-top: 16px;
     }
 
+    /* Pacotes */
     .pkg {
-      background: var(--card); 
+      background: white; 
       border-radius: 12px; 
       padding: 16px; 
       border: 1px solid #eef2f6; 
-      box-shadow: 0 3px 12px rgba(0,0,0,0.3); 
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06); 
       transition: 0.3s;
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 360px;
-      text-align: center;
+      justify-content: space-between; /* botão no final */
+      align-items: center; /* centraliza horizontalmente */
+      height: 100%; 
+      text-align: center; /* centraliza título e preço */
     }
 
-    .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.4); }
-    .pkg h3 { margin: 0 0 6px; font-size: 16px; color: var(--dark); text-align: center; }
-    .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; text-align: center; }
+    .pricing .pkg {
+      /* Garante mesma altura para todos */
+      min-height: 360px;
+    }
 
+    .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+    .pkg h3 { margin: 0 0 6px; font-size: 16px; color: #111; }
+    .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
+
+    /* Lista com bullets no canto */
     .pkg ul {
       padding-left: 18px;
       margin: 8px 0;
       font-size: 14px;
-      color: #111;
-      text-align: left;
-      width: 100%;
+      color: #444;
+      text-align: left; /* itens alinhados à esquerda */
     }
 
     .cta {
@@ -90,12 +78,10 @@
 
     .details {
       display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-top: 24px;
-      color: #fff;
     }
     .contact-card {
-      background: var(--card); padding: 16px; border-radius: 12px; border: 1px solid #eef2f6;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      color: #111;
+      background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #eef2f6;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .contact-card h3 { margin-bottom: 6px; color: var(--accent); }
     .contact-line { margin: 6px 0; font-size: 14px; }
@@ -109,6 +95,7 @@
       .pricing { gap: 20px; }
     }
 
+    /* Botões flutuantes */
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -154,6 +141,7 @@
   <main>
     <h2>Pacotes com máquina (4 horas)</h2>
     <div class="pricing">
+      <!-- Pacote Somente Máquina (em primeiro) -->
       <div class="pkg">
         <h3>Somente máquina</h3>
         <div class="price">R$ 500</div>
