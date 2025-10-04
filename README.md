@@ -33,6 +33,8 @@
       gap: 16px;
       margin-top: 16px;
     }
+
+    /* Ajuste principal para centralizar nome, preço e botão */
     .pkg {
       background: white; 
       border-radius: 12px; 
@@ -43,15 +45,16 @@
 
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* botão no final */
+      justify-content: space-between; /* empurra o botão para o final */
       align-items: center; /* centraliza horizontalmente */
       height: 100%;
-      text-align: center; /* centraliza o texto dentro dos elementos */
+      text-align: center; /* centraliza texto */
     }
+
     .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
     .pkg h3 { margin: 0 0 6px; font-size: 16px; color: #111; }
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
-    .pkg ul { padding-left: 18px; margin: 8px 0; text-align: center; font-size: 14px; color: #444; }
+    .pkg ul { padding-left: 18px; margin: 8px 0; font-size: 14px; color: #444; text-align: center; }
 
     .cta {
       display: inline-block; margin-top: 10px; padding: 10px 14px; border-radius: 10px;
@@ -111,7 +114,6 @@
       box-shadow: 0 0 25px rgba(0,0,0,0.5);
     }
 
-    /* Cores específicas */
     .floating-buttons .instagram {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
@@ -138,7 +140,6 @@
         <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20apenas%20a%20máquina" target="_blank">Reservar pelo WhatsApp</a>
       </div>
 
-      <!-- Pacotes com pelúcias -->
       <div class="pkg">
         <h3>30 pelúcias + máquina</h3>
         <div class="price">R$ 1.000</div>
@@ -169,4 +170,49 @@
           <li>Uso da máquina por 4 horas</li>
           <li>Frete grátis (Paracambi, Seropédica, Japeri, Conrado)</li>
         </ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20qu
+        <a class="cta" href="https://wa.me/5521968884003?text=Olá,%20quero%20reservar%20o%20pacote%20de%2080%20pelúcias%20com%20máquina" target="_blank">Reservar pelo WhatsApp</a>
+      </div>
+    </div>
+
+    <section class="details">
+      <div>
+        <h2>Informações importantes</h2>
+        <p>Tempo de locação: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato.</p>
+
+        <h3 style="margin-top:12px">Onde entregamos</h3>
+        <p>Paracambi, Seropédica, Japeri e Conrado — frete grátis nessas localidades.</p>
+
+        <h3 style="margin-top:12px">Como reservar</h3>
+        <ol>
+          <li>Entre em contato por WhatsApp: <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a>.</li>
+          <li>Combine data, horário e endereço de entrega.</li>
+          <li>Pagamento: na hora de receber a máquina.</li>
+        </ol>
+      </div>
+
+      <aside class="contact-card">
+        <h3>Contato</h3>
+        <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
+        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Botões flutuantes WhatsApp + Instagram -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <a href="https://www.instagram.com/diversao_em_festas_?utm_source=ig_web_button_share_sheet&igsh=c3U2a2xudTFibTE5" 
+       target="_blank" class="instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    </a>
+  </div>
+
+  <footer>
+    <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
+  </footer>
+</body>
+</html>
