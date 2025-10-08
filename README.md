@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
+    /* Logo e nome */
     .logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* espaço entre imagem e nome */
-}
-.logo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; /* deixa redonda */
-  object-fit: cover;
-  border: 2px solid white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
 
-    /* Imagem de fundo com blur e escurecida */
+    /* Imagem de fundo com blur */
     .fundo {
       position: fixed;
       top: 0;
@@ -31,7 +32,6 @@
       z-index: -1;
       opacity: 0.9;
       filter: brightness(0.7) blur(5px);
-      transition: filter 0.3s;
     }
 
     :root {
@@ -42,12 +42,26 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: #f8fafc; color: #0b1220; line-height: 1.5; letter-spacing: 0.5px; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: #f8fafc;
+      color: #0b1220;
+      line-height: 1.5;
+      letter-spacing: 0.5px;
+      -webkit-font-smoothing: antialiased;
+    }
 
+    /* Cabeçalho fixo no topo */
     header {
       background: linear-gradient(90deg, var(--accent), #ff9a76);
-      color: white; text-align: center; padding: 20px 12px;
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      color: white;
+      text-align: center;
+      padding: 20px 12px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
     header h1 { font-size: 24px; margin-bottom: 4px; }
@@ -55,7 +69,7 @@
 
     main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
-    /* Título Pacotes com fundo */
+    /* Título Pacotes */
     h2.pacotes {
       background: rgba(255, 255, 255, 0.9);
       padding: 8px 16px;
@@ -76,7 +90,6 @@
       margin-top: 16px;
     }
 
-    /* Pacotes */
     .pkg {
       background: rgba(255,255,255,0.95);
       border-radius: 12px; 
@@ -175,15 +188,13 @@
   <!-- Imagem de fundo -->
   <img src="maquina.jpg" alt="máquina de pelúcia" class="fundo">
 
+  <!-- Cabeçalho fixo com logo -->
   <header>
-   <header>
-  <div class="logo-container">
-    <img src="logo.jpg" alt="Logo CasaRes Play" class="logo">
-    <h1>CasaRes Play</h1>
-  </div>
-  <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
-</header>
-
+    <div class="logo-container">
+      <img src="logo.jpg" alt="Logo CasaRes Play" class="logo">
+      <h1>CasaRes Play</h1>
+    </div>
+    <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
   </header>
 
   <main>
