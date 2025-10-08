@@ -51,7 +51,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Cabeçalho fixo no topo */
+    /* Cabeçalho fixo e com transição para esconder */
     header {
       background: linear-gradient(90deg, var(--accent), #ff9a76);
       color: white;
@@ -63,7 +63,9 @@
       right: 0;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: top 0.4s ease; /* animação para esconder/mostrar */
     }
+
     header h1 { font-size: 24px; margin-bottom: 4px; }
     header .lead { font-size: 14px; color: #fff; opacity: .9; }
 
@@ -188,8 +190,8 @@
   <!-- Imagem de fundo -->
   <img src="maquina.jpg" alt="máquina de pelúcia" class="fundo">
 
-  <!-- Cabeçalho fixo com logo -->
-  <header>
+  <!-- Cabeçalho com logo -->
+  <header id="header">
     <div class="logo-container">
       <img src="logo.jpg" alt="Logo CasaRes Play" class="logo">
       <h1>CasaRes Play</h1>
@@ -282,5 +284,23 @@
   <footer>
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
   </footer>
+
+  <!-- Script: esconde o topo ao rolar -->
+  <script>
+    let lastScroll = 0;
+    const header = document.getElementById("header");
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.style.top = "-100px"; // esconde
+      } else {
+        header.style.top = "0"; // mostra
+      }
+
+      lastScroll = currentScroll;
+    });
+  </script>
 </body>
 </html>
