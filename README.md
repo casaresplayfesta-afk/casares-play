@@ -178,7 +178,7 @@
   <header>
    <header>
   <div class="logo-container">
-    <img src="logotipo.jpg.jpeg" alt="Logo CasaRes Play" class="logo">
+    <img src="logo.jpg" alt="Logo CasaRes Play" class="logo">
     <h1>CasaRes Play</h1>
   </div>
   <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
