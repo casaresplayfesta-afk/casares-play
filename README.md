@@ -51,7 +51,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Cabeçalho fixo com efeito de esconder */
+    /* Cabeçalho fixo e com transição para esconder */
     header {
       background: linear-gradient(90deg, var(--accent), #ff9a76);
       color: white;
@@ -63,11 +63,7 @@
       right: 0;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      transition: transform 0.4s ease;
-    }
-
-    header.hide {
-      transform: translateY(-100%);
+      transition: top 0.4s ease;
     }
 
     header h1 { font-size: 24px; margin-bottom: 4px; }
@@ -75,6 +71,7 @@
 
     main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
+    /* Título Pacotes */
     h2.pacotes {
       background: rgba(255, 255, 255, 0.9);
       padding: 8px 16px;
@@ -97,16 +94,16 @@
 
     .pkg {
       background: rgba(255,255,255,0.95);
-      border-radius: 12px;
-      padding: 16px;
-      border: 1px solid #ddd;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+      border-radius: 12px; 
+      padding: 16px; 
+      border: 1px solid #ddd; 
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15); 
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      min-height: 360px;
+      min-height: 360px; 
     }
 
     .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
@@ -204,39 +201,41 @@
 
   <main>
     <h2 class="pacotes">Pacotes com máquina (4 horas)</h2>
-    <div class="pricing">
-      <!-- Exemplo de pacote -->
-      <div class="pkg">
-        <h3>Pacote Básico</h3>
-        <div class="price">R$150,00</div>
-        <ul>
-          <li>Máquina de pelúcia</li>
-          <li>4 horas de funcionamento</li>
-          <li>Entrega e retirada inclusa</li>
-        </ul>
-        <a href="#" class="cta">Alugar Agora</a>
-      </div>
-      <div class="pkg">
-        <h3>Pacote Premium</h3>
-        <div class="price">R$250,00</div>
-        <ul>
-          <li>Máquina de pelúcia</li>
-          <li>4 horas de funcionamento</li>
-          <li>Decoração temática</li>
-          <li>Entrega e retirada inclusa</li>
-        </ul>
-        <a href="#" class="cta">Alugar Agora</a>
-      </div>
+    <div class="pricing" id="pricing-container">
+      <!-- Pacotes serão gerados aqui via JS -->
     </div>
+
+    <section class="details">
+      <div>
+        <h2>Informações importantes</h2>
+        <p>Tempo de locação: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato.</p>
+
+        <h3 style="margin-top:12px">Onde entregamos</h3>
+        <p>Paracambi, Seropédica, Japeri e Conrado — frete grátis nessas localidades.</p>
+
+        <h3 style="margin-top:12px">Como reservar</h3>
+        <ol>
+          <li>Entre em contato por WhatsApp: <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a>.</li>
+          <li>Combine data, horário e endereço de entrega.</li>
+          <li>Pagamento: na hora de receber a máquina.</li>
+        </ol>
+      </div>
+
+      <aside class="contact-card">
+        <h3>Contato</h3>
+        <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
+        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
+      </aside>
+    </section>
   </main>
 
-  <!-- Botões flutuantes -->
   <div class="floating-buttons">
-    <a href="https://wa.me/5521968884003" target="_blank">
+    <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" target="_blank">
       <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </a>
-    <a href="https://instagram.com" target="_blank" class="instagram">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+    <a href="https://www.instagram.com/diversao_em_festas_?utm_source=ig_web_button_share_sheet&igsh=c3U2a2xudTFibTE5" target="_blank" class="instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
     </a>
   </div>
 
@@ -244,20 +243,78 @@
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
   </footer>
 
-  <!-- Script para esconder e mostrar o topo dinamicamente -->
   <script>
-    const header = document.getElementById("header");
-    let lastScroll = 0;
+    // Pacotes dinâmicos
+    const pacotes = [
+      {
+        nome: "Somente máquina",
+        preco: "R$ 500",
+        itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
+        whatsappMsg: "Olá, quero reservar apenas a máquina"
+      },
+      {
+        nome: "30 pelúcias + máquina",
+        preco: "R$ 1.000",
+        itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
+        whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina"
+      },
+      {
+        nome: "50 pelúcias + máquina",
+        preco: "R$ 1.300",
+        itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
+        whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina"
+      },
+      {
+        nome: "80 pelúcias + máquina",
+        preco: "R$ 1.750",
+        itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
+        whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina"
+      }
+    ];
 
+    const container = document.getElementById("pricing-container");
+
+    pacotes.forEach(p => {
+      const pkgDiv = document.createElement("div");
+      pkgDiv.classList.add("pkg");
+
+      const h3 = document.createElement("h3");
+      h3.textContent = p.nome;
+      pkgDiv.appendChild(h3);
+
+      const priceDiv = document.createElement("div");
+      priceDiv.classList.add("price");
+      priceDiv.textContent = p.preco;
+      pkgDiv.appendChild(priceDiv);
+
+      const ul = document.createElement("ul");
+      p.itens.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+      pkgDiv.appendChild(ul);
+
+      const a = document.createElement("a");
+      a.classList.add("cta");
+      a.href = `https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}`;
+      a.target = "_blank";
+      a.textContent = "Reservar pelo WhatsApp";
+      pkgDiv.appendChild(a);
+
+      container.appendChild(pkgDiv);
+    });
+
+    // Script: esconde o topo ao rolar
+    let lastScroll = 0;
+    const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset;
-
       if (currentScroll > lastScroll && currentScroll > 100) {
-        header.classList.add("hide");
+        header.style.top = "-100px";
       } else {
-        header.classList.remove("hide");
+        header.style.top = "0";
       }
-
       lastScroll = currentScroll;
     });
   </script>
