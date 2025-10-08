@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
+    .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* espaço entre imagem e nome */
+}
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* deixa redonda */
+  object-fit: cover;
+  border: 2px solid white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
     /* Imagem de fundo com blur e escurecida */
     .fundo {
       position: fixed;
@@ -161,8 +176,14 @@
   <img src="maquina.jpg" alt="máquina de pelúcia" class="fundo">
 
   <header>
+   <header>
+  <div class="logo-container">
+    <img src="logotipo.jpg.jpeg" alt="Logo CasaRes Play" class="logo">
     <h1>CasaRes Play</h1>
-    <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
+  </div>
+  <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
+</header>
+
   </header>
 
   <main>
