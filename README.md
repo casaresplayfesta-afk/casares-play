@@ -142,7 +142,13 @@
     .contact-line a { text-decoration: none; color: var(--dark); }
     .contact-line a:hover { color: var(--accent); text-decoration: underline; }
 
-    footer { margin-top: 30px; padding: 14px; text-align: center; color: var(--muted); font-size: 12px; }
+    footer {
+      margin-top: 30px;
+      padding: 14px;
+      text-align: center;
+      color: white; /* alterado para branco */
+      font-size: 12px;
+    }
 
     @media (max-width:700px){
       .details{ grid-template-columns: 1fr; }
