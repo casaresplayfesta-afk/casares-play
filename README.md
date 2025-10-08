@@ -204,8 +204,41 @@
 
   <main>
     <h2 class="pacotes">Pacotes com máquina (4 horas)</h2>
-    <!-- Conteúdo principal aqui -->
+    <div class="pricing">
+      <!-- Exemplo de pacote -->
+      <div class="pkg">
+        <h3>Pacote Básico</h3>
+        <div class="price">R$150,00</div>
+        <ul>
+          <li>Máquina de pelúcia</li>
+          <li>4 horas de funcionamento</li>
+          <li>Entrega e retirada inclusa</li>
+        </ul>
+        <a href="#" class="cta">Alugar Agora</a>
+      </div>
+      <div class="pkg">
+        <h3>Pacote Premium</h3>
+        <div class="price">R$250,00</div>
+        <ul>
+          <li>Máquina de pelúcia</li>
+          <li>4 horas de funcionamento</li>
+          <li>Decoração temática</li>
+          <li>Entrega e retirada inclusa</li>
+        </ul>
+        <a href="#" class="cta">Alugar Agora</a>
+      </div>
+    </div>
   </main>
+
+  <!-- Botões flutuantes -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/5521968884003" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+    <a href="https://instagram.com" target="_blank" class="instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+    </a>
+  </div>
 
   <footer>
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
@@ -220,10 +253,8 @@
       const currentScroll = window.pageYOffset;
 
       if (currentScroll > lastScroll && currentScroll > 100) {
-        // rolando para baixo -> esconder o topo
         header.classList.add("hide");
       } else {
-        // rolando para cima -> mostrar o topo
         header.classList.remove("hide");
       }
 
