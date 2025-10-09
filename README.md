@@ -146,7 +146,7 @@
       margin-top: 30px;
       padding: 14px;
       text-align: center;
-      color: white; /* alterado para branco */
+      color: white;
       font-size: 12px;
     }
 
@@ -154,6 +154,63 @@
       .details{ grid-template-columns: 1fr; }
       .pricing { gap: 20px; }
     }
+
+    /* Galeria de fotos */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    }
+
+    /* Modal (zoom da imagem) */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .close:hover { color: #ff6b6b; }
 
     /* Botões flutuantes */
     .floating-buttons {
@@ -207,8 +264,20 @@
 
   <main>
     <h2 class="pacotes">Pacotes com máquina (4 horas)</h2>
-    <div class="pricing" id="pricing-container">
-      <!-- Pacotes serão gerados aqui via JS -->
+    <div class="pricing" id="pricing-container"></div>
+
+    <!-- Galeria de Fotos -->
+    <h2 class="pacotes" style="margin-top:40px;">Fotos da Máquina</h2>
+    <div class="galeria">
+      <img src="maquina1.jpg" alt="Máquina de pelúcia 1">
+      <img src="maquina2.jpg" alt="Máquina de pelúcia 2">
+      <img src="maquina3.jpg" alt="Máquina de pelúcia 3">
+    </div>
+
+    <!-- Modal para zoom -->
+    <div id="imagemModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="imgAmpliada">
     </div>
 
     <section class="details">
@@ -252,77 +321,48 @@
   <script>
     // Pacotes dinâmicos
     const pacotes = [
-      {
-        nome: "Somente máquina",
-        preco: "R$ 500",
-        itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
-        whatsappMsg: "Olá, quero reservar apenas a máquina"
-      },
-      {
-        nome: "30 pelúcias + máquina",
-        preco: "R$ 1.000",
-        itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
-        whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina"
-      },
-      {
-        nome: "50 pelúcias + máquina",
-        preco: "R$ 1.300",
-        itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
-        whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina"
-      },
-      {
-        nome: "80 pelúcias + máquina",
-        preco: "R$ 1.750",
-        itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],
-        whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina"
-      }
+      { nome: "Somente máquina", preco: "R$ 500", itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
+      { nome: "30 pelúcias + máquina", preco: "R$ 1.000", itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina" },
+      { nome: "50 pelúcias + máquina", preco: "R$ 1.300", itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina" },
+      { nome: "80 pelúcias + máquina", preco: "R$ 1.750", itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina" }
     ];
 
     const container = document.getElementById("pricing-container");
-
     pacotes.forEach(p => {
       const pkgDiv = document.createElement("div");
       pkgDiv.classList.add("pkg");
-
-      const h3 = document.createElement("h3");
-      h3.textContent = p.nome;
-      pkgDiv.appendChild(h3);
-
-      const priceDiv = document.createElement("div");
-      priceDiv.classList.add("price");
-      priceDiv.textContent = p.preco;
-      pkgDiv.appendChild(priceDiv);
-
-      const ul = document.createElement("ul");
-      p.itens.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item;
-        ul.appendChild(li);
-      });
-      pkgDiv.appendChild(ul);
-
-      const a = document.createElement("a");
-      a.classList.add("cta");
-      a.href = `https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}`;
-      a.target = "_blank";
-      a.textContent = "Reservar pelo WhatsApp";
-      pkgDiv.appendChild(a);
-
+      pkgDiv.innerHTML = `
+        <h3>${p.nome}</h3>
+        <div class="price">${p.preco}</div>
+        <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
+        <a class="cta" href="https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}" target="_blank">Reservar pelo WhatsApp</a>
+      `;
       container.appendChild(pkgDiv);
     });
 
-    // Script: esconde o topo ao rolar
+    // Esconde o topo ao rolar
     let lastScroll = 0;
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
       const currentScroll = window.pageYOffset;
-      if (currentScroll > lastScroll && currentScroll > 100) {
-        header.style.top = "-100px";
-      } else {
-        header.style.top = "0";
-      }
+      header.style.top = (currentScroll > lastScroll && currentScroll > 100) ? "-100px" : "0";
       lastScroll = currentScroll;
     });
+
+    // Modal da galeria
+    const modal = document.getElementById("imagemModal");
+    const modalImg = document.getElementById("imgAmpliada");
+    const closeBtn = document.querySelector(".close");
+
+    document.querySelectorAll(".galeria img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+      });
+    });
+
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
   </script>
 </body>
 </html>
