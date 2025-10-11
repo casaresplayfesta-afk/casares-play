@@ -5,20 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
   <style>
-    /* Logo e nome */
-    .logo-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+    :root {
+      --accent: #ff6b6b;
+      --dark: #0f1724;
+      --muted: #6b7280;
     }
-    .logo {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid white;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0b1220;
+      line-height: 1.5;
     }
 
     /* Fundo */
@@ -32,23 +29,9 @@
       filter: brightness(0.7) blur(5px);
     }
 
-    :root {
-      --accent: #ff6b6b;
-      --dark: #0f1724;
-      --muted: #6b7280;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Inter, system-ui, sans-serif;
-      background: #f8fafc;
-      color: #0b1220;
-      line-height: 1.5;
-    }
-
     /* Cabeçalho */
     header {
-      background: linear-gradient(90deg, var(--accent), #ff9a76);
+      background: linear-gradient(90deg,var(--accent),#ff9a76);
       color: white;
       text-align: center;
       padding: 20px;
@@ -62,13 +45,23 @@
 
     main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
+    /* Títulos com fundo branco */
+    h2.fundo-branco {
+      background: #fff;
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      color: #111;
+      text-shadow: none;
+    }
+
     /* Pacotes */
     .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
       gap: 16px;
     }
-
     .pkg {
       background: rgba(255,255,255,0.95);
       border-radius: 12px;
@@ -77,9 +70,7 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.15);
       text-align: center;
     }
-
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin: 8px 0; }
-
     .cta {
       display: inline-block;
       margin-top: 10px;
@@ -113,77 +104,51 @@
     }
     .galeria img:hover { transform: scale(1.05); }
 
-    /* Modal da galeria */
+    /* Modal imagens */
     .modal { display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.9); }
     .modal-content { margin: auto; display: block; width: 80%; max-width: 700px; border-radius: 10px; }
     .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
 
     /* Botões flutuantes */
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px; right: 20px;
-      display: flex; gap: 12px;
-      z-index: 10000;
-    }
-    .floating-buttons a {
-      background-color: #25D366;
-      width: 55px; height: 55px;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: 0.2s;
-    }
+    .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; gap: 12px; z-index: 10000; }
+    .floating-buttons a { width: 55px; height: 55px; border-radius: 50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(0,0,0,0.3); transition:0.2s; }
     .floating-buttons a:hover { transform: scale(1.1); }
-
-    .instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-    }
+    .instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
     footer { margin-top: 30px; text-align: center; color: white; font-size: 12px; }
 
-    /* ======= Gaveta Shopee ======= */
+    /* ======= Gaveta moderna ======= */
     .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 9998;
-      transition: opacity 0.3s;
+      display: none; position: fixed; inset:0; background: rgba(0,0,0,0.6); z-index: 9998; transition: opacity 0.3s;
     }
     .drawer {
-      position: fixed;
-      bottom: -100%;
-      left: 0; right: 0;
-      background: #fff;
-      border-radius: 20px 20px 0 0;
-      padding: 20px;
-      box-shadow: 0 -2px 15px rgba(0,0,0,0.3);
-      transition: bottom 0.4s ease;
-      z-index: 9999;
-      max-height: 70%;
-      overflow-y: auto;
+      position: fixed; bottom:-100%; left:0; right:0; background:#fff;
+      border-radius:20px 20px 0 0; padding:20px; box-shadow:0 -2px 15px rgba(0,0,0,0.3);
+      transition: bottom 0.4s ease; z-index:9999; max-height:70%; overflow-y:auto;
     }
-    .drawer.active { bottom: 0; }
-    .overlay.active { display: block; }
-    .drawer h3 { text-align: center; margin-bottom: 16px; color: #333; }
-    .options {
-      display: flex; justify-content: center; flex-wrap: wrap;
-      gap: 10px; margin-bottom: 20px;
-    }
+    .drawer.active { bottom:0; }
+    .overlay.active { display:block; }
+    .drawer h3 { text-align:center; margin-bottom:16px; color:#333; }
+    .options { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
     .option {
-      padding: 10px 18px; border-radius: 30px; border: 2px solid #ff6b6b;
-      color: #ff6b6b; background: #fff; font-weight: 600; cursor: pointer;
-      transition: all 0.2s;
+      padding: 10px 18px; border-radius:30px; border:2px solid var(--accent);
+      color: var(--accent); background:#fff; font-weight:600; cursor:pointer; transition:all 0.2s;
     }
-    .option:hover, .option.selected { background: #ff6b6b; color: #fff; }
+    .option:hover, .option.selected { background: var(--accent); color:#fff; }
+    .input-qtd {
+      width: 100%; padding:10px; border-radius:8px; border:1px solid #ddd; margin-bottom:10px; font-size:16px;
+    }
+    .valor-total { text-align:center; font-weight:bold; margin-bottom:16px; font-size:18px; color:var(--accent); }
     .confirmar {
-      display: block; width: 100%;
-      background: linear-gradient(90deg,#ff6b6b,#ff9a76);
-      color: #fff; border: none; border-radius: 10px;
-      padding: 14px; font-size: 16px; font-weight: bold;
-      cursor: pointer;
+      display:block; width:100%; background: linear-gradient(90deg,var(--accent),#ff9a76);
+      color:#fff; border:none; border-radius:10px; padding:14px; font-size:16px; font-weight:bold; cursor:pointer;
     }
-    .confirmar:hover { opacity: .9; }
+    .confirmar:hover { opacity:.9; }
+
+    /* Avisos finais */
+    .avisos { margin-top:24px; background: #fff; border-radius:12px; padding:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+    .avisos h3 { margin-bottom:8px; color:var(--accent); }
+    .avisos p, .avisos li { font-size:14px; margin-bottom:6px; }
   </style>
 </head>
 <body>
@@ -198,19 +163,27 @@
   </header>
 
   <main>
-    <h2>Pacotes com máquina (4 horas)</h2>
+    <h2 class="fundo-branco">Pacotes com máquina (4 horas)</h2>
     <div class="pricing" id="pricing-container"></div>
 
-    <h2 style="margin-top:40px;">Fotos da Máquina</h2>
+    <h2 class="fundo-branco" style="margin-top:40px;">Fotos da Máquina</h2>
     <div class="galeria">
       <img src="maquina1.jpg">
       <img src="maquina2.jpg">
       <img src="maquina3.jpg">
     </div>
 
-    <div id="imagemModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="imgAmpliada">
+    <div class="avisos">
+      <h3>Informações importantes</h3>
+      <p>Tempo de locação: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato.</p>
+      <h3>Onde entregamos</h3>
+      <p>Paracambi, Seropédica, Japeri e Conrado — frete grátis nessas localidades.</p>
+      <h3>Como reservar</h3>
+      <ol>
+        <li>Entre em contato por WhatsApp: <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a>.</li>
+        <li>Combine data, horário e endereço de entrega.</li>
+        <li>Pagamento: na hora de receber a máquina.</li>
+      </ol>
     </div>
   </main>
 
@@ -227,90 +200,88 @@
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
   </footer>
 
-  <!-- Fundo escuro e gaveta -->
+  <!-- Gaveta -->
   <div class="overlay"></div>
   <div class="drawer" id="drawer">
     <h3>Escolha a quantidade de pelúcias</h3>
-    <div class="options">
-      <div class="option" data-qtd="30">30 pelúcias</div>
-      <div class="option" data-qtd="50">50 pelúcias</div>
-      <div class="option" data-qtd="80">80 pelúcias</div>
-      <div class="option" data-qtd="100">100 pelúcias</div>
-    </div>
+    <input type="number" min="20" value="20" class="input-qtd" id="inputQtd">
+    <div class="valor-total" id="valorTotal">Total: R$ 850</div>
     <button class="confirmar">Confirmar reserva</button>
   </div>
 
   <script>
-    // Pacotes
+    const precoMaquina = 550;
+    const precoPorPelucia = 15;
+
     const pacotes = [
-      { nome: "Somente máquina", preco: "R$ 500", itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas"], tipo: "somente" },
-      { nome: "Máquina + pelúcias", preco: "Personalizado", itens: ["Escolha a quantidade na reserva"], tipo: "com" }
+      { nome: "Pacote Personalizado", preco: precoMaquina }
     ];
+
     const container = document.getElementById("pricing-container");
-    pacotes.forEach(p => {
+    pacotes.forEach((p, index) => {
       const pkgDiv = document.createElement("div");
       pkgDiv.classList.add("pkg");
       pkgDiv.innerHTML = `
         <h3>${p.nome}</h3>
-        <div class="price">${p.preco}</div>
-        <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
-        <a href="#" class="cta reservar" data-tipo="${p.tipo}">Reservar pelo WhatsApp</a>
+        <div class="price">R$ ${p.preco}</div>
+        <a class="cta" href="#">Reservar pelo WhatsApp</a>
       `;
       container.appendChild(pkgDiv);
-    });
 
-    // Gaveta moderna
-    const overlay = document.querySelector(".overlay");
-    const drawer = document.getElementById("drawer");
-    const options = document.querySelectorAll(".option");
-    const confirmar = document.querySelector(".confirmar");
-    let selecionado = null;
-    let tipoPacote = null;
-
-    document.querySelectorAll(".reservar").forEach(btn => {
-      btn.addEventListener("click", e => {
-        e.preventDefault();
-        tipoPacote = btn.dataset.tipo;
-        if (tipoPacote === "somente") {
-          const msg = "Olá, quero reservar somente a máquina de pelúcia (sem pelúcias inclusas).";
-          window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
-          return;
-        }
-        overlay.classList.add("active");
-        drawer.classList.add("active");
+      const cta = pkgDiv.querySelector(".cta");
+      cta.addEventListener("click", () => {
+        document.querySelector(".overlay").classList.add("active");
+        document.getElementById("drawer").classList.add("active");
       });
     });
 
+    // Atualiza valor total ao digitar quantidade
+    const inputQtd = document.getElementById("inputQtd");
+    const valorTotal = document.getElementById("valorTotal");
+    const btnConfirmar = document.querySelector(".confirmar");
+
+    function atualizarTotal() {
+      let qtd = parseInt(inputQtd.value) || 20;
+      if (qtd < 20) qtd = 20;
+      inputQtd.value = qtd;
+      const total = precoMaquina + qtd * precoPorPelucia;
+      valorTotal.textContent = `Total: R$ ${total}`;
+    }
+    inputQtd.addEventListener("input", atualizarTotal);
+
+    // Abrir WhatsApp com mensagem
+    btnConfirmar.addEventListener("click", () => {
+      const qtd = parseInt(inputQtd.value);
+      const total = precoMaquina + qtd * precoPorPelucia;
+      const msg = `Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
+      window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
+    });
+
+    // Fechar gaveta
+    const overlay = document.querySelector(".overlay");
     overlay.addEventListener("click", () => {
       overlay.classList.remove("active");
-      drawer.classList.remove("active");
-      selecionado = null;
-      options.forEach(o => o.classList.remove("selected"));
+      document.getElementById("drawer").classList.remove("active");
     });
 
-    options.forEach(opt => {
-      opt.addEventListener("click", () => {
-        options.forEach(o => o.classList.remove("selected"));
-        opt.classList.add("selected");
-        selecionado = opt.dataset.qtd;
-      });
+    // Cabeçalho esconde ao rolar
+    let lastScroll = 0;
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+      header.style.top = (currentScroll > lastScroll && currentScroll > 100) ? "-100px" : "0";
+      lastScroll = currentScroll;
     });
 
-    confirmar.addEventListener("click", () => {
-      if (!selecionado) {
-        alert("Selecione uma quantidade de pelúcias.");
-        return;
-      }
-      const msg = `Olá! Quero reservar a máquina com ${selecionado} pelúcias.`;
-      window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
-      overlay.classList.remove("active");
-      drawer.classList.remove("active");
-    });
+    // Modal galeria
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `<span class="close">&times;</span><img class="modal-content">`;
+    document.body.appendChild(modal);
 
-    // Modal imagens
-    const modal = document.getElementById("imagemModal");
-    const modalImg = document.getElementById("imgAmpliada");
-    const closeBtn = document.querySelector(".close");
+    const modalImg = modal.querySelector(".modal-content");
+    const closeBtn = modal.querySelector(".close");
+
     document.querySelectorAll(".galeria img").forEach(img => {
       img.addEventListener("click", () => {
         modal.style.display = "block";
@@ -318,7 +289,7 @@
       });
     });
     closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+    window.onclick = e => { if(e.target===modal) modal.style.display="none"; };
   </script>
 </body>
 </html>
