@@ -98,14 +98,34 @@
       cursor:pointer;
     }
     .cta:hover { opacity: 0.9; }
-    .pkg input {
-      width: 80px;
-      padding: 6px;
-      font-size: 14px;
-      text-align: center;
-      margin-top: 6px;
-      border-radius: 6px;
+
+    /* Gaveta tipo Shopee */
+    .gaveta {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      gap: 4px;
+    }
+    .gaveta button {
+      width: 30px;
+      height: 30px;
       border: 1px solid #ddd;
+      background: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.2s;
+    }
+    .gaveta button:hover { background: var(--accent); color: #fff; }
+    .gaveta input {
+      width: 60px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 4px;
+      font-size: 14px;
     }
 
     .galeria {
@@ -212,7 +232,11 @@
         pkgDiv.innerHTML = `
           <h3>${p.nome}</h3>
           <div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
-          <input type="number" id="inputQtd" min="20" value="20">
+          <div class="gaveta">
+            <button id="menos">-</button>
+            <input type="number" id="inputQtd" min="20" value="20">
+            <button id="mais">+</button>
+          </div>
           <a class="cta" id="btnPersonalizado">Reservar pelo WhatsApp</a>
         `;
       } else {
@@ -229,16 +253,20 @@
     const inputQtd = document.getElementById("inputQtd");
     const precoPersonalizado = document.getElementById("precoPersonalizado");
     const btnPersonalizado = document.getElementById("btnPersonalizado");
+    const btnMais = document.getElementById("mais");
+    const btnMenos = document.getElementById("menos");
 
     function atualizarPrecoPersonalizado(){
       let qtd = parseInt(inputQtd.value);
-      if(isNaN(qtd) || qtd < 20) qtd = 20; // ajusta para mínimo 20
+      if(isNaN(qtd) || qtd < 20) qtd = 20;
       inputQtd.value = qtd;
       const total = precoMaquina + qtd * precoPorPelucia;
       precoPersonalizado.textContent = `R$ ${total}`;
     }
 
     inputQtd.addEventListener("input", atualizarPrecoPersonalizado);
+    btnMais.addEventListener("click", () => { inputQtd.value = parseInt(inputQtd.value)+1; atualizarPrecoPersonalizado(); });
+    btnMenos.addEventListener("click", () => { inputQtd.value = parseInt(inputQtd.value)-1; atualizarPrecoPersonalizado(); });
 
     btnPersonalizado.addEventListener("click", () => {
       let qtd = parseInt(inputQtd.value);
