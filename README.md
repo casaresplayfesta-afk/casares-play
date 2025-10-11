@@ -77,6 +77,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
       gap: 16px;
+      margin-top: 16px;
     }
     .pkg {
       background: rgba(255,255,255,0.95);
@@ -86,6 +87,7 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.15);
       text-align: center;
     }
+    .pkg h3 { margin-bottom: 8px; }
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin: 8px 0; }
     .cta {
       display: inline-block;
@@ -102,6 +104,15 @@
       cursor:pointer;
     }
     .cta:hover { opacity: 0.9; }
+    .pkg input {
+      width: 80px;
+      padding: 6px;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
 
     /* Galeria */
     .galeria {
@@ -133,28 +144,6 @@
     .instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
     footer { margin-top: 30px; text-align: center; color: white; font-size: 12px; }
-
-    /* ======= Gaveta moderna ======= */
-    .overlay {
-      display: none; position: fixed; inset:0; background: rgba(0,0,0,0.6); z-index: 9998; transition: opacity 0.3s;
-    }
-    .drawer {
-      position: fixed; bottom:-100%; left:0; right:0; background:#fff;
-      border-radius:20px 20px 0 0; padding:20px; box-shadow:0 -2px 15px rgba(0,0,0,0.3);
-      transition: bottom 0.4s ease; z-index:9999; max-height:70%; overflow-y:auto;
-    }
-    .drawer.active { bottom:0; }
-    .overlay.active { display:block; }
-    .drawer h3 { text-align:center; margin-bottom:16px; color:#333; }
-    .input-qtd {
-      width: 100%; padding:10px; border-radius:8px; border:1px solid #ddd; margin-bottom:10px; font-size:16px;
-    }
-    .valor-total { text-align:center; font-weight:bold; margin-bottom:16px; font-size:18px; color:var(--accent); }
-    .confirmar {
-      display:block; width:100%; background: linear-gradient(90deg,var(--accent),#ff9a76);
-      color:#fff; border:none; border-radius:10px; padding:14px; font-size:16px; font-weight:bold; cursor:pointer;
-    }
-    .confirmar:hover { opacity:.9; }
 
     /* Avisos finais */
     .avisos { margin-top:24px; background: #fff; border-radius:12px; padding:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
@@ -211,69 +200,66 @@
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
   </footer>
 
-  <!-- Gaveta -->
-  <div class="overlay"></div>
-  <div class="drawer" id="drawer">
-    <h3>Escolha a quantidade de pelúcias</h3>
-    <input type="number" min="20" value="20" class="input-qtd" id="inputQtd">
-    <div class="valor-total" id="valorTotal">Total: R$ 850</div>
-    <button class="confirmar">Confirmar reserva</button>
-  </div>
-
   <script>
     const precoMaquina = 550;
     const precoPorPelucia = 15;
 
     const pacotes = [
-      { nome: "Pacote Personalizado", preco: precoMaquina }
+      { nome: "Somente máquina", preco: 500, itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
+      { nome: "30 pelúcias + máquina", preco: 1000, itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina" },
+      { nome: "50 pelúcias + máquina", preco: 1300, itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina" },
+      { nome: "80 pelúcias + máquina", preco: 1750, itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina" },
+      { nome: "Pacote Personalizado", preco: precoMaquina, itens: [], personalizado: true }
     ];
 
     const container = document.getElementById("pricing-container");
+
     pacotes.forEach((p) => {
       const pkgDiv = document.createElement("div");
       pkgDiv.classList.add("pkg");
-      pkgDiv.innerHTML = `
-        <h3>${p.nome}</h3>
-        <div class="price">R$ ${p.preco}</div>
-        <a class="cta">Reservar pelo WhatsApp</a>
-      `;
-      container.appendChild(pkgDiv);
 
-      const cta = pkgDiv.querySelector(".cta");
-      cta.addEventListener("click", () => {
-        document.querySelector(".overlay").classList.add("active");
-        document.getElementById("drawer").classList.add("active");
-      });
+      if(p.personalizado){
+        pkgDiv.innerHTML = `
+          <h3>${p.nome}</h3>
+          <div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
+          <input type="number" id="inputQtd" min="20" value="20">
+          <a class="cta" id="btnPersonalizado">Reservar pelo WhatsApp</a>
+        `;
+      } else {
+        pkgDiv.innerHTML = `
+          <h3>${p.nome}</h3>
+          <div class="price">R$ ${p.preco}</div>
+          <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
+          <a class="cta" href="https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}" target="_blank">Reservar pelo WhatsApp</a>
+        `;
+      }
+      container.appendChild(pkgDiv);
     });
 
     const inputQtd = document.getElementById("inputQtd");
-    const valorTotal = document.getElementById("valorTotal");
-    const btnConfirmar = document.querySelector(".confirmar");
+    const precoPersonalizado = document.getElementById("precoPersonalizado");
+    const btnPersonalizado = document.getElementById("btnPersonalizado");
 
-    function atualizarTotal() {
+    function atualizarPrecoPersonalizado(){
       let qtd = parseInt(inputQtd.value) || 20;
-      if (qtd < 20) qtd = 20;
+      if(qtd < 20) qtd = 20;
       inputQtd.value = qtd;
       const total = precoMaquina + qtd * precoPorPelucia;
-      valorTotal.textContent = `Total: R$ ${total}`;
+      precoPersonalizado.textContent = `R$ ${total}`;
     }
-    inputQtd.addEventListener("input", atualizarTotal);
 
-    btnConfirmar.addEventListener("click", () => {
+    inputQtd.addEventListener("input", atualizarPrecoPersonalizado);
+
+    btnPersonalizado.addEventListener("click", () => {
       const qtd = parseInt(inputQtd.value);
       const total = precoMaquina + qtd * precoPorPelucia;
       const msg = `Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
       window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
     });
 
-    // Fechar gaveta
-    const overlay = document.querySelector(".overlay");
-    overlay.addEventListener("click", () => {
-      overlay.classList.remove("active");
-      document.getElementById("drawer").classList.remove("active");
-    });
+    atualizarPrecoPersonalizado();
 
-    // Cabeçalho esconde ao rolar
+    // Esconde topo
     let lastScroll = 0;
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
@@ -282,13 +268,13 @@
       lastScroll = currentScroll;
     });
 
-    // Modal galeria
-    const modal = document.createElement("div");
-    modal.classList.add("modal");
-    modal.innerHTML = `<span class="close">&times;</span><img class="modal-content">`;
+    // Galeria modal
+    const modal = document.createElement('div');
+    modal.id = 'imagemModal';
+    modal.className = 'modal';
+    modal.innerHTML = `<span class="close">&times;</span><img class="modal-content" id="imgAmpliada">`;
     document.body.appendChild(modal);
-
-    const modalImg = modal.querySelector(".modal-content");
+    const modalImg = document.getElementById("imgAmpliada");
     const closeBtn = modal.querySelector(".close");
 
     document.querySelectorAll(".galeria img").forEach(img => {
@@ -298,7 +284,7 @@
       });
     });
     closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = e => { if(e.target===modal) modal.style.display="none"; };
+    window.onclick = e => { if(e.target===modal) modal.style.display='none'; };
   </script>
 </body>
 </html>
