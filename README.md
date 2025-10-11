@@ -18,7 +18,6 @@
       line-height: 1.5;
     }
 
-    /* Fundo */
     .fundo {
       position: fixed;
       top: 0; left: 0;
@@ -29,7 +28,6 @@
       filter: brightness(0.7) blur(5px);
     }
 
-    /* Cabeçalho */
     header {
       background: linear-gradient(90deg,var(--accent),#ff9a76);
       color: white;
@@ -43,7 +41,6 @@
     header h1 { font-size: 24px; margin-bottom: 4px; }
     header .lead { font-size: 14px; opacity: .9; }
 
-    /* Logo */
     .logo-container {
       display: flex;
       align-items: center;
@@ -61,7 +58,6 @@
 
     main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
-    /* Títulos com fundo branco */
     h2.fundo-branco {
       background: #fff;
       display: inline-block;
@@ -69,10 +65,8 @@
       border-radius: 8px;
       margin-bottom: 16px;
       color: #111;
-      text-shadow: none;
     }
 
-    /* Pacotes */
     .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
@@ -114,7 +108,6 @@
       border: 1px solid #ddd;
     }
 
-    /* Galeria */
     .galeria {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -132,12 +125,10 @@
     }
     .galeria img:hover { transform: scale(1.05); }
 
-    /* Modal imagens */
     .modal { display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.9); }
     .modal-content { margin: auto; display: block; width: 80%; max-width: 700px; border-radius: 10px; }
     .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
 
-    /* Botões flutuantes */
     .floating-buttons { position: fixed; bottom: 20px; right: 20px; display: flex; gap: 12px; z-index: 10000; }
     .floating-buttons a { width: 55px; height: 55px; border-radius: 50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 15px rgba(0,0,0,0.3); transition:0.2s; }
     .floating-buttons a:hover { transform: scale(1.1); }
@@ -145,7 +136,6 @@
 
     footer { margin-top: 30px; text-align: center; color: white; font-size: 12px; }
 
-    /* Avisos finais */
     .avisos { margin-top:24px; background: #fff; border-radius:12px; padding:16px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
     .avisos h3 { margin-bottom:8px; color:var(--accent); }
     .avisos p, .avisos li { font-size:14px; margin-bottom:6px; }
@@ -205,7 +195,7 @@
     const precoPorPelucia = 15;
 
     const pacotes = [
-      { nome: "Somente máquina", preco: 500, itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
+      { nome: "Somente máquina", preco: 550, itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
       { nome: "30 pelúcias + máquina", preco: 1000, itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina" },
       { nome: "50 pelúcias + máquina", preco: 1300, itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina" },
       { nome: "80 pelúcias + máquina", preco: 1750, itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina" },
@@ -259,7 +249,6 @@
 
     atualizarPrecoPersonalizado();
 
-    // Esconde topo
     let lastScroll = 0;
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
@@ -268,7 +257,6 @@
       lastScroll = currentScroll;
     });
 
-    // Galeria modal
     const modal = document.createElement('div');
     modal.id = 'imagemModal';
     modal.className = 'modal';
