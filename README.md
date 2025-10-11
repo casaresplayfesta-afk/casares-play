@@ -80,7 +80,10 @@
       border: 1px solid #ddd;
       box-shadow: 0 5px 20px rgba(0,0,0,0.15);
       text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
     }
+    .pkg:hover { transform: translateY(-3px); }
     .pkg h3 { margin-bottom: 8px; }
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin: 8px 0; }
     .cta {
@@ -95,11 +98,15 @@
       font-size: 14px;
       transition: 0.2s;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      cursor:pointer;
     }
     .cta:hover { opacity: 0.9; }
 
     /* Gaveta tipo Shopee */
+    .gaveta-container {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease;
+    }
     .gaveta {
       display: flex;
       justify-content: center;
@@ -224,7 +231,7 @@
 
     const container = document.getElementById("pricing-container");
 
-    pacotes.forEach((p) => {
+    pacotes.forEach((p, idx) => {
       const pkgDiv = document.createElement("div");
       pkgDiv.classList.add("pkg");
 
@@ -233,10 +240,12 @@
           <h3>${p.nome}</h3>
           <div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
           <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
-          <div class="gaveta">
-            <button id="menos">-</button>
-            <input type="number" id="inputQtd" min="20" value="20">
-            <button id="mais">+</button>
+          <div class="gaveta-container">
+            <div class="gaveta">
+              <button id="menos">-</button>
+              <input type="number" id="inputQtd" min="20" value="20">
+              <button id="mais">+</button>
+            </div>
           </div>
           <a class="cta" id="btnPersonalizado">Reservar pelo WhatsApp</a>
         `;
@@ -249,6 +258,14 @@
         `;
       }
       container.appendChild(pkgDiv);
+
+      if(p.personalizado){
+        const gavetaContainer = pkgDiv.querySelector(".gaveta-container");
+        pkgDiv.addEventListener("click", () => {
+          const isOpen = gavetaContainer.style.maxHeight && gavetaContainer.style.maxHeight !== "0px";
+          gavetaContainer.style.maxHeight = isOpen ? "0px" : "80px";
+        });
+      }
     });
 
     const inputQtd = document.getElementById("inputQtd");
@@ -266,10 +283,11 @@
     }
 
     inputQtd.addEventListener("input", atualizarPrecoPersonalizado);
-    btnMais.addEventListener("click", () => { inputQtd.value = parseInt(inputQtd.value)+1; atualizarPrecoPersonalizado(); });
-    btnMenos.addEventListener("click", () => { inputQtd.value = parseInt(inputQtd.value)-1; atualizarPrecoPersonalizado(); });
+    btnMais.addEventListener("click", e=>{e.stopPropagation(); inputQtd.value = parseInt(inputQtd.value)+1; atualizarPrecoPersonalizado();});
+    btnMenos.addEventListener("click", e=>{e.stopPropagation(); inputQtd.value = parseInt(inputQtd.value)-1; atualizarPrecoPersonalizado();});
 
-    btnPersonalizado.addEventListener("click", () => {
+    btnPersonalizado.addEventListener("click", e=>{
+      e.stopPropagation();
       let qtd = parseInt(inputQtd.value);
       if(isNaN(qtd) || qtd < 20) qtd = 20;
       const total = precoMaquina + qtd * precoPorPelucia;
