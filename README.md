@@ -64,13 +64,17 @@
       box-shadow: 0 5px 20px rgba(0,0,0,0.15);
       text-align: center; cursor: pointer;
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 380px; /* espaço suficiente para todos os botões */
     }
     .pkg:hover { transform: translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.25);}
     .pkg h3 { margin-bottom: 8px; }
     .price { font-size: 20px; color: var(--accent); font-weight: 700; margin: 8px 0; }
     .cta {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: auto;
       padding: 10px 14px;
       border-radius: 10px;
       background: var(--accent);
@@ -268,4 +272,14 @@ const header=document.getElementById("header");
 window.addEventListener("scroll",()=>{const s=window.pageYOffset; header.style.top=(s>lastScroll && s>100)?"-100px":"0"; lastScroll=s;});
 
 // Modal da galeria
-const modal=do
+const modal=document.createElement('div'); modal.id='imagemModal'; modal.className='modal';
+modal.innerHTML=`<span class="close">&times;</span><img class="modal-content" id="imgAmpliada">`;
+document.body.appendChild(modal);
+const modalImg=document.getElementById("imgAmpliada");
+const closeBtn=modal.querySelector(".close");
+document.querySelectorAll(".galeria img").forEach(img=>{ img.addEventListener("click",()=>{ modal.style.display='block'; modalImg.src=img.src; });});
+closeBtn.onclick=()=>modal.style.display='none';
+window.onclick=e=>{if(e.target===modal) modal.style.display='none';};
+</script>
+</body>
+</html>
