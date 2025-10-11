@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
 <style>
-:root {
-  --accent:#ff6b6b;
-  --dark:#0f1724;
-  --muted:#6b7280;
-}
+:root { --accent:#ff6b6b; --dark:#0f1724; --muted:#6b7280; }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Inter,sans-serif;background:#f8fafc;color:#0b1220;line-height:1.5;}
 .fundo{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.9;filter:brightness(0.7) blur(5px);}
@@ -103,61 +99,60 @@ footer{margin-top:30px;text-align:center;color:white;font-size:12px;}
 const precoMaquina=550;
 const precoPorPelucia=15;
 const pacotes=[
-{name:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],whatsappMsg:"Olá, quero reservar apenas a máquina"},
-{name:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"],whatsappMsg:"Olá, quero reservar o pacote de 30 pelúcias com máquina"},
-{name:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"],whatsappMsg:"Olá, quero reservar o pacote de 50 pelúcias com máquina"},
-{name:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"],whatsappMsg:"Olá, quero reservar o pacote de 80 pelúcias com máquina"},
-{name:"Pacote Personalizado", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],personalizado:true}
+  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg:"Olá, quero reservar apenas a máquina" },
+  { nome:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg:"Olá, quero reservar o pacote de 30 pelúcias com máquina" },
+  { nome:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg:"Olá, quero reservar o pacote de 50 pelúcias com máquina" },
+  { nome:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg:"Olá, quero reservar o pacote de 80 pelúcias com máquina" },
+  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], personalizado:true }
 ];
 
 const container=document.getElementById("pricing-container");
 pacotes.forEach(p=>{
-const pkgDiv=document.createElement("div"); pkgDiv.classList.add("pkg");
-if(p.personalizado){
-pkgDiv.innerHTML=`
-<h3>${p.nome}</h3>
-<div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
-<ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
-<div class="gaveta-container">
-  <div class="gaveta">
-    <button id="menos">-</button>
-    <input type="number" id="inputQtd" min="20" value="20">
-    <button id="mais">+</button>
-  </div>
-</div>
-<a class="cta" id="btnPersonalizado">Reservar pelo WhatsApp</a>
-`;
-container.appendChild(pkgDiv);
-const inputQtd=pkgDiv.querySelector("#inputQtd");
-const precoPersonalizado=pkgDiv.querySelector("#precoPersonalizado");
-const btnPersonalizado=pkgDiv.querySelector("#btnPersonalizado");
-const btnMais=pkgDiv.querySelector("#mais");
-const btnMenos=pkgDiv.querySelector("#menos");
-
-function atualizarPreco(){ 
-let qtd=parseInt(inputQtd.value); if(isNaN(qtd)||qtd<20) qtd=20; inputQtd.value=qtd;
-const total=precoMaquina+qtd*precoPorPelucia;
-precoPersonalizado.textContent=`R$ ${total}`;
-}
-inputQtd.addEventListener("input",atualizarPreco);
-btnMais.addEventListener("click",()=>{ inputQtd.value=parseInt(inputQtd.value)+1; atualizarPreco(); });
-btnMenos.addEventListener("click",()=>{ inputQtd.value=parseInt(inputQtd.value)-1; atualizarPreco(); });
-btnPersonalizado.addEventListener("click",()=>{
-let qtd=parseInt(inputQtd.value); if(isNaN(qtd)||qtd<20) qtd=20;
-const total=precoMaquina+qtd*precoPorPelucia;
-const msg=`Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
-window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`,"_blank");
-});
-atualizarPreco();
-}else{
-pkgDiv.innerHTML=`
-<h3>${p.nome}</h3>
-<div class="price">R$ ${p.preco}</div>
-<ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
-<a class="cta" href="https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}" target="_blank">Reservar pelo WhatsApp</a>
-`;
-container.appendChild(pkgDiv);
-}
+  const pkgDiv=document.createElement("div"); pkgDiv.classList.add("pkg");
+  if(p.personalizado){
+    pkgDiv.innerHTML=`
+    <h3>${p.nome}</h3>
+    <div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
+    <ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <div class="gaveta-container">
+      <div class="gaveta">
+        <button id="menos">-</button>
+        <input type="number" id="inputQtd" min="20" value="20">
+        <button id="mais">+</button>
+      </div>
+    </div>
+    <a class="cta" id="btnPersonalizado">Reservar pelo WhatsApp</a>
+    `;
+    container.appendChild(pkgDiv);
+    const inputQtd=pkgDiv.querySelector("#inputQtd");
+    const precoPersonalizado=pkgDiv.querySelector("#precoPersonalizado");
+    const btnPersonalizado=pkgDiv.querySelector("#btnPersonalizado");
+    const btnMais=pkgDiv.querySelector("#mais");
+    const btnMenos=pkgDiv.querySelector("#menos");
+    function atualizarPreco(){ 
+      let qtd=parseInt(inputQtd.value); if(isNaN(qtd)||qtd<20) qtd=20; inputQtd.value=qtd;
+      const total=precoMaquina+qtd*precoPorPelucia;
+      precoPersonalizado.textContent=`R$ ${total}`;
+    }
+    inputQtd.addEventListener("input",atualizarPreco);
+    btnMais.addEventListener("click",()=>{ inputQtd.value=parseInt(inputQtd.value)+1; atualizarPreco(); });
+    btnMenos.addEventListener("click",()=>{ inputQtd.value=parseInt(inputQtd.value)-1; atualizarPreco(); });
+    btnPersonalizado.addEventListener("click",()=>{
+      let qtd=parseInt(inputQtd.value); if(isNaN(qtd)||qtd<20) qtd=20;
+      const total=precoMaquina+qtd*precoPorPelucia;
+      const msg=`Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
+      window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`,"_blank");
+    });
+    atualizarPreco();
+  } else {
+    pkgDiv.innerHTML=`
+    <h3>${p.nome}</h3>
+    <div class="price">R$ ${p.preco}</div>
+    <ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <a class="cta" href="https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}" target="_blank">Reservar pelo WhatsApp</a>
+    `;
+    container.appendChild(pkgDiv);
+  }
 });
 
 // Header oculto ao rolar
