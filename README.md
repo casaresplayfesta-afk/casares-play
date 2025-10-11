@@ -215,11 +215,11 @@
     const precoPorPelucia = 15;
 
     const pacotes = [
-      { nome: "Somente máquina", preco: 550, itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
-      { nome: "30 pelúcias + máquina", preco: 1000, itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina" },
-      { nome: "50 pelúcias + máquina", preco: 1300, itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina" },
-      { nome: "80 pelúcias + máquina", preco: 1750, itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina" },
-      { nome: "Pacote Personalizado", preco: precoMaquina, itens: [], personalizado: true }
+      { nome: "Somente máquina", preco: 550, itens: ["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
+      { nome: "30 pelúcias + máquina", preco: 1000, itens: ["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina" },
+      { nome: "50 pelúcias + máquina", preco: 1300, itens: ["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina" },
+      { nome: "80 pelúcias + máquina", preco: 1750, itens: ["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina" },
+      { nome: "Pacote Personalizado", preco: precoMaquina, itens: ["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], personalizado: true }
     ];
 
     const container = document.getElementById("pricing-container");
@@ -232,6 +232,7 @@
         pkgDiv.innerHTML = `
           <h3>${p.nome}</h3>
           <div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
+          <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
           <div class="gaveta">
             <button id="menos">-</button>
             <input type="number" id="inputQtd" min="20" value="20">
