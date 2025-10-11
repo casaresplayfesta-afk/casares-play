@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
 <style>
-:root { --accent:#ff6b6b; --dark:#0f1724; --muted:#6b7280;}
+:root {
+  --accent:#ff6b6b;
+  --dark:#0f1724;
+  --muted:#6b7280;
+}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:Inter,sans-serif;background:#f8fafc;color:#0b1220;line-height:1.5;}
 .fundo{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.9;filter:brightness(0.7) blur(5px);}
@@ -23,28 +27,23 @@ h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-rad
 .price{font-size:20px;color:var(--accent);font-weight:700;margin:8px 0;}
 .cta{display:inline-block;margin-top:auto;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:14px;transition:0.2s;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
 .cta:hover{opacity:0.9;}
-
 .gaveta-container{overflow:hidden;border-radius:12px;background:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.2); margin-top:12px; padding:12px;}
 .gaveta{display:flex; justify-content:center; align-items:center; gap:8px;}
 .gaveta button{width:32px;height:32px;border:1px solid #ddd; background:#fff; font-size:20px; line-height:1; cursor:pointer; border-radius:6px; transition:0.2s;}
 .gaveta button:hover{background:var(--accent); color:#fff;}
 .gaveta input{width:60px;text-align:center;border:1px solid #ddd;border-radius:6px;padding:4px;font-size:14px;}
-
 .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:16px;}
 .galeria img{width:100%;height:230px;object-fit:cover;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.15); cursor:pointer; transition:transform 0.3s;}
 .galeria img:hover{transform:scale(1.05);}
-
 .modal{display:none;position:fixed;z-index:2000;inset:0;background:rgba(0,0,0,0.9);}
 .modal-content{margin:auto;display:block;width:80%;max-width:700px;border-radius:10px;}
 .close{position:absolute;top:20px;right:35px;color:#fff;font-size:40px;cursor:pointer;}
-
 .floating-buttons{position:fixed;bottom:20px;right:20px;display:flex;gap:12px;z-index:10000;}
 .floating-buttons a{width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(0,0,0,0.25);transition:transform 0.2s, box-shadow 0.2s;}
 .floating-buttons a img{width:28px;height:28px;}
 .floating-buttons a:hover{transform:scale(1.1);box-shadow:0 0 25px rgba(0,0,0,0.5);}
 .floating-buttons a.whatsapp{background:#25D366;}
 .floating-buttons a.instagram{background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);}
-
 footer{margin-top:30px;text-align:center;color:white;font-size:12px;}
 .avisos{margin-top:24px;background:#fff;border-radius:12px;padding:16px;box-shadow:0 4px 15px rgba(0,0,0,0.1);}
 .avisos h3{margin-bottom:8px;color:var(--accent);}
@@ -101,13 +100,14 @@ footer{margin-top:30px;text-align:center;color:white;font-size:12px;}
 </footer>
 
 <script>
-const precoMaquina=550; const precoPorPelucia=15;
+const precoMaquina=550;
+const precoPorPelucia=15;
 const pacotes=[
-{name:"Somente máquina", preco:precoMaquina,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],whatsappMsg:"Olá, quero reservar apenas a máquina"},
+{name:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],whatsappMsg:"Olá, quero reservar apenas a máquina"},
 {name:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"],whatsappMsg:"Olá, quero reservar o pacote de 30 pelúcias com máquina"},
 {name:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"],whatsappMsg:"Olá, quero reservar o pacote de 50 pelúcias com máquina"},
 {name:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"],whatsappMsg:"Olá, quero reservar o pacote de 80 pelúcias com máquina"},
-{name:"Pacote Personalizado", preco:precoMaquina,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],personalizado:true}
+{name:"Pacote Personalizado", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"],personalizado:true}
 ];
 
 const container=document.getElementById("pricing-container");
@@ -160,11 +160,11 @@ container.appendChild(pkgDiv);
 }
 });
 
-// Esconde header ao rolar
+// Header oculto ao rolar
 let lastScroll=0; const header=document.getElementById("header");
 window.addEventListener("scroll",()=>{const s=window.pageYOffset; header.style.top=(s>lastScroll && s>100)?"-100px":"0"; lastScroll=s;});
 
-// Modal da galeria
+// Modal galeria
 const modal=document.createElement('div'); modal.id='imagemModal'; modal.className='modal';
 modal.innerHTML=`<span class="close">&times;</span><img class="modal-content" id="imgAmpliada">`;
 document.body.appendChild(modal);
