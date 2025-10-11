@@ -43,6 +43,22 @@
     header h1 { font-size: 24px; margin-bottom: 4px; }
     header .lead { font-size: 14px; opacity: .9; }
 
+    /* Logo */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .logo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
     main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
     /* Títulos com fundo branco */
@@ -83,6 +99,7 @@
       font-size: 14px;
       transition: 0.2s;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      cursor:pointer;
     }
     .cta:hover { opacity: 0.9; }
 
@@ -129,12 +146,6 @@
     .drawer.active { bottom:0; }
     .overlay.active { display:block; }
     .drawer h3 { text-align:center; margin-bottom:16px; color:#333; }
-    .options { display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:10px; }
-    .option {
-      padding: 10px 18px; border-radius:30px; border:2px solid var(--accent);
-      color: var(--accent); background:#fff; font-weight:600; cursor:pointer; transition:all 0.2s;
-    }
-    .option:hover, .option.selected { background: var(--accent); color:#fff; }
     .input-qtd {
       width: 100%; padding:10px; border-radius:8px; border:1px solid #ddd; margin-bottom:10px; font-size:16px;
     }
@@ -156,7 +167,7 @@
 
   <header id="header">
     <div class="logo-container">
-      <img src="logo.jpg" class="logo">
+      <img src="logo.jpg" class="logo" alt="Logo CasaRes Play">
       <h1>CasaRes Play</h1>
     </div>
     <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
@@ -168,9 +179,9 @@
 
     <h2 class="fundo-branco" style="margin-top:40px;">Fotos da Máquina</h2>
     <div class="galeria">
-      <img src="maquina1.jpg">
-      <img src="maquina2.jpg">
-      <img src="maquina3.jpg">
+      <img src="maquina1.jpg" alt="Máquina 1">
+      <img src="maquina2.jpg" alt="Máquina 2">
+      <img src="maquina3.jpg" alt="Máquina 3">
     </div>
 
     <div class="avisos">
@@ -218,13 +229,13 @@
     ];
 
     const container = document.getElementById("pricing-container");
-    pacotes.forEach((p, index) => {
+    pacotes.forEach((p) => {
       const pkgDiv = document.createElement("div");
       pkgDiv.classList.add("pkg");
       pkgDiv.innerHTML = `
         <h3>${p.nome}</h3>
         <div class="price">R$ ${p.preco}</div>
-        <a class="cta" href="#">Reservar pelo WhatsApp</a>
+        <a class="cta">Reservar pelo WhatsApp</a>
       `;
       container.appendChild(pkgDiv);
 
@@ -235,7 +246,6 @@
       });
     });
 
-    // Atualiza valor total ao digitar quantidade
     const inputQtd = document.getElementById("inputQtd");
     const valorTotal = document.getElementById("valorTotal");
     const btnConfirmar = document.querySelector(".confirmar");
@@ -249,7 +259,6 @@
     }
     inputQtd.addEventListener("input", atualizarTotal);
 
-    // Abrir WhatsApp com mensagem
     btnConfirmar.addEventListener("click", () => {
       const qtd = parseInt(inputQtd.value);
       const total = precoMaquina + qtd * precoPorPelucia;
