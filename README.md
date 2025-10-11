@@ -21,13 +21,11 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
 
-    /* Imagem de fundo com blur */
+    /* Fundo */
     .fundo {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       object-fit: cover;
       z-index: -1;
       opacity: 0.9;
@@ -38,131 +36,72 @@
       --accent: #ff6b6b;
       --dark: #0f1724;
       --muted: #6b7280;
-      --card: #ffffff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: Inter, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       background: #f8fafc;
       color: #0b1220;
       line-height: 1.5;
-      letter-spacing: 0.5px;
-      -webkit-font-smoothing: antialiased;
     }
 
-    /* Cabeçalho fixo e com transição para esconder */
+    /* Cabeçalho */
     header {
       background: linear-gradient(90deg, var(--accent), #ff9a76);
       color: white;
       text-align: center;
-      padding: 20px 12px;
+      padding: 20px;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       transition: top 0.4s ease;
     }
-
     header h1 { font-size: 24px; margin-bottom: 4px; }
-    header .lead { font-size: 14px; color: #fff; opacity: .9; }
+    header .lead { font-size: 14px; opacity: .9; }
 
     main { padding: 140px 16px 40px; max-width: 1100px; margin: 0 auto; }
 
-    /* Título Pacotes */
-    h2.pacotes {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 8px 16px;
-      border-radius: 8px;
-      display: inline-block;
-      color: #111;
-      text-shadow: 0 1px 2px rgba(255,255,255,0.6);
-      margin-bottom: 16px;
-    }
-
-    h2, h3 { text-shadow: 0 1px 2px rgba(255,255,255,0.6); }
-    h3 { color: var(--dark); }
-
+    /* Pacotes */
     .pricing {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
       gap: 16px;
-      margin-top: 16px;
     }
 
     .pkg {
       background: rgba(255,255,255,0.95);
-      border-radius: 12px; 
-      padding: 16px; 
-      border: 1px solid #ddd; 
-      box-shadow: 0 5px 20px rgba(0,0,0,0.15); 
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid #ddd;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
       text-align: center;
-      min-height: 360px; 
     }
 
-    .pkg:hover { transform: translateY(-4px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
-    .pkg h3 { margin: 0 0 6px; font-size: 16px; }
-    .price { font-size: 20px; color: var(--accent); font-weight: 700; margin-bottom: 8px; }
-
-    .pkg ul {
-      padding-left: 18px;
-      margin: 8px 0;
-      font-size: 14px;
-      color: #111;
-      text-align: left;
-    }
+    .price { font-size: 20px; color: var(--accent); font-weight: 700; margin: 8px 0; }
 
     .cta {
-      display: inline-block; margin-top: 10px; padding: 10px 14px; border-radius: 10px;
-      background: var(--accent); color: white; text-decoration: none; font-weight: 600; font-size: 14px; transition: 0.2s;
-      text-align: center;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: 0.2s;
       box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
     .cta:hover { opacity: 0.9; }
 
-    .details {
-      display: grid; grid-template-columns: 2fr 1fr; gap: 18px; margin-top: 24px;
-    }
-    .details > div, .contact-card {
-      background: rgba(255,255,255,0.95);
-      border-radius: 12px;
-      padding: 16px;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-
-    .contact-card h3 { margin-bottom: 6px; color: var(--accent); }
-    .contact-line { margin: 6px 0; font-size: 14px; color: #111; }
-    .contact-line a { text-decoration: none; color: var(--dark); }
-    .contact-line a:hover { color: var(--accent); text-decoration: underline; }
-
-    footer {
-      margin-top: 30px;
-      padding: 14px;
-      text-align: center;
-      color: white;
-      font-size: 12px;
-    }
-
-    @media (max-width:700px){
-      .details{ grid-template-columns: 1fr; }
-      .pricing { gap: 20px; }
-    }
-
-    /* Galeria de fotos */
+    /* Galeria */
     .galeria {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 16px;
       margin-top: 16px;
     }
-
     .galeria img {
       width: 100%;
       height: 230px;
@@ -170,147 +109,117 @@
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.15);
       cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
     }
+    .galeria img:hover { transform: scale(1.05); }
 
-    .galeria img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    }
-
-    /* Modal (zoom da imagem) */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      padding-top: 60px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.9);
-    }
-
-    .modal-content {
-      margin: auto;
-      display: block;
-      width: 80%;
-      max-width: 700px;
-      border-radius: 10px;
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 35px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .close:hover { color: #ff6b6b; }
+    /* Modal da galeria */
+    .modal { display: none; position: fixed; z-index: 2000; inset: 0; background: rgba(0,0,0,0.9); }
+    .modal-content { margin: auto; display: block; width: 80%; max-width: 700px; border-radius: 10px; }
+    .close { position: absolute; top: 20px; right: 35px; color: #fff; font-size: 40px; cursor: pointer; }
 
     /* Botões flutuantes */
     .floating-buttons {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      gap: 12px;
+      bottom: 20px; right: 20px;
+      display: flex; gap: 12px;
       z-index: 10000;
     }
-
     .floating-buttons a {
       background-color: #25D366;
-      width: 55px;
-      height: 55px;
+      width: 55px; height: 55px;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: 0.2s;
+    }
+    .floating-buttons a:hover { transform: scale(1.1); }
+
+    .instagram {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
 
-    .floating-buttons a img {
-      width: 28px;
-      height: 28px;
-    }
+    footer { margin-top: 30px; text-align: center; color: white; font-size: 12px; }
 
-    .floating-buttons a:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    /* ======= Gaveta Shopee ======= */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 9998;
+      transition: opacity 0.3s;
     }
-
-    .floating-buttons .instagram {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    .drawer {
+      position: fixed;
+      bottom: -100%;
+      left: 0; right: 0;
+      background: #fff;
+      border-radius: 20px 20px 0 0;
+      padding: 20px;
+      box-shadow: 0 -2px 15px rgba(0,0,0,0.3);
+      transition: bottom 0.4s ease;
+      z-index: 9999;
+      max-height: 70%;
+      overflow-y: auto;
     }
+    .drawer.active { bottom: 0; }
+    .overlay.active { display: block; }
+    .drawer h3 { text-align: center; margin-bottom: 16px; color: #333; }
+    .options {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 10px; margin-bottom: 20px;
+    }
+    .option {
+      padding: 10px 18px; border-radius: 30px; border: 2px solid #ff6b6b;
+      color: #ff6b6b; background: #fff; font-weight: 600; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .option:hover, .option.selected { background: #ff6b6b; color: #fff; }
+    .confirmar {
+      display: block; width: 100%;
+      background: linear-gradient(90deg,#ff6b6b,#ff9a76);
+      color: #fff; border: none; border-radius: 10px;
+      padding: 14px; font-size: 16px; font-weight: bold;
+      cursor: pointer;
+    }
+    .confirmar:hover { opacity: .9; }
   </style>
 </head>
 <body>
-  <!-- Imagem de fundo -->
   <img src="maquina.jpg" alt="máquina de pelúcia" class="fundo">
 
-  <!-- Cabeçalho -->
   <header id="header">
     <div class="logo-container">
-      <img src="logo.jpg" alt="Logo CasaRes Play" class="logo">
+      <img src="logo.jpg" class="logo">
       <h1>CasaRes Play</h1>
     </div>
     <p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
   </header>
 
   <main>
-    <h2 class="pacotes">Pacotes com máquina (4 horas)</h2>
+    <h2>Pacotes com máquina (4 horas)</h2>
     <div class="pricing" id="pricing-container"></div>
 
-    <!-- Galeria de Fotos -->
-    <h2 class="pacotes" style="margin-top:40px;">Fotos da Máquina</h2>
+    <h2 style="margin-top:40px;">Fotos da Máquina</h2>
     <div class="galeria">
-      <img src="maquina1.jpg" alt="Máquina de pelúcia 1">
-      <img src="maquina2.jpg" alt="Máquina de pelúcia 2">
-      <img src="maquina3.jpg" alt="Máquina de pelúcia 3">
+      <img src="maquina1.jpg">
+      <img src="maquina2.jpg">
+      <img src="maquina3.jpg">
     </div>
 
-    <!-- Modal para zoom -->
     <div id="imagemModal" class="modal">
       <span class="close">&times;</span>
       <img class="modal-content" id="imgAmpliada">
     </div>
-
-    <section class="details">
-      <div>
-        <h2>Informações importantes</h2>
-        <p>Tempo de locação: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato.</p>
-
-        <h3 style="margin-top:12px">Onde entregamos</h3>
-        <p>Paracambi, Seropédica, Japeri e Conrado — frete grátis nessas localidades.</p>
-
-        <h3 style="margin-top:12px">Como reservar</h3>
-        <ol>
-          <li>Entre em contato por WhatsApp: <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a>.</li>
-          <li>Combine data, horário e endereço de entrega.</li>
-          <li>Pagamento: na hora de receber a máquina.</li>
-        </ol>
-      </div>
-
-      <aside class="contact-card">
-        <h3>Contato</h3>
-        <div class="contact-line"><strong>WhatsApp:</strong> <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a></div>
-        <div class="contact-line"><strong>E-mail:</strong> <a href="mailto:casaresplayfesta@gmail.com">casaresplayfesta@gmail.com</a></div>
-        <p style="font-size:13px;color:var(--muted);margin-top:6px">Atendimento para Paracambi, Seropédica, Japeri e Conrado. Frete grátis.</p>
-      </aside>
-    </section>
   </main>
 
   <div class="floating-buttons">
-    <a href="https://wa.me/5521968884003?text=Olá,%20quero%20mais%20informações%20sobre%20o%20aluguel%20da%20máquina%20de%20pelúcia" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <a href="https://wa.me/5521968884003" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="28">
     </a>
-    <a href="https://www.instagram.com/diversao_em_festas_?utm_source=ig_web_button_share_sheet&igsh=c3U2a2xudTFibTE5" target="_blank" class="instagram">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+    <a href="https://www.instagram.com/diversao_em_festas_" target="_blank" class="instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="28">
     </a>
   </div>
 
@@ -318,15 +227,25 @@
     <p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
   </footer>
 
-  <script>
-    // Pacotes dinâmicos
-    const pacotes = [
-      { nome: "Somente máquina", preco: "R$ 500", itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas", "Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg: "Olá, quero reservar apenas a máquina" },
-      { nome: "30 pelúcias + máquina", preco: "R$ 1.000", itens: ["30 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 30 pelúcias com máquina" },
-      { nome: "50 pelúcias + máquina", preco: "R$ 1.300", itens: ["50 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 50 pelúcias com máquina" },
-      { nome: "80 pelúcias + máquina", preco: "R$ 1.750", itens: ["80 pelúcias inclusas", "Uso da máquina por 4 horas", "Frete grátis"], whatsappMsg: "Olá, quero reservar o pacote de 80 pelúcias com máquina" }
-    ];
+  <!-- Fundo escuro e gaveta -->
+  <div class="overlay"></div>
+  <div class="drawer" id="drawer">
+    <h3>Escolha a quantidade de pelúcias</h3>
+    <div class="options">
+      <div class="option" data-qtd="30">30 pelúcias</div>
+      <div class="option" data-qtd="50">50 pelúcias</div>
+      <div class="option" data-qtd="80">80 pelúcias</div>
+      <div class="option" data-qtd="100">100 pelúcias</div>
+    </div>
+    <button class="confirmar">Confirmar reserva</button>
+  </div>
 
+  <script>
+    // Pacotes
+    const pacotes = [
+      { nome: "Somente máquina", preco: "R$ 500", itens: ["Uso da máquina por 4 horas", "Sem pelúcias inclusas"], tipo: "somente" },
+      { nome: "Máquina + pelúcias", preco: "Personalizado", itens: ["Escolha a quantidade na reserva"], tipo: "com" }
+    ];
     const container = document.getElementById("pricing-container");
     pacotes.forEach(p => {
       const pkgDiv = document.createElement("div");
@@ -335,32 +254,69 @@
         <h3>${p.nome}</h3>
         <div class="price">${p.preco}</div>
         <ul>${p.itens.map(i => `<li>${i}</li>`).join('')}</ul>
-        <a class="cta" href="https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}" target="_blank">Reservar pelo WhatsApp</a>
+        <a href="#" class="cta reservar" data-tipo="${p.tipo}">Reservar pelo WhatsApp</a>
       `;
       container.appendChild(pkgDiv);
     });
 
-    // Esconde o topo ao rolar
-    let lastScroll = 0;
-    const header = document.getElementById("header");
-    window.addEventListener("scroll", () => {
-      const currentScroll = window.pageYOffset;
-      header.style.top = (currentScroll > lastScroll && currentScroll > 100) ? "-100px" : "0";
-      lastScroll = currentScroll;
+    // Gaveta moderna
+    const overlay = document.querySelector(".overlay");
+    const drawer = document.getElementById("drawer");
+    const options = document.querySelectorAll(".option");
+    const confirmar = document.querySelector(".confirmar");
+    let selecionado = null;
+    let tipoPacote = null;
+
+    document.querySelectorAll(".reservar").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        tipoPacote = btn.dataset.tipo;
+        if (tipoPacote === "somente") {
+          const msg = "Olá, quero reservar somente a máquina de pelúcia (sem pelúcias inclusas).";
+          window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
+          return;
+        }
+        overlay.classList.add("active");
+        drawer.classList.add("active");
+      });
     });
 
-    // Modal da galeria
+    overlay.addEventListener("click", () => {
+      overlay.classList.remove("active");
+      drawer.classList.remove("active");
+      selecionado = null;
+      options.forEach(o => o.classList.remove("selected"));
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener("click", () => {
+        options.forEach(o => o.classList.remove("selected"));
+        opt.classList.add("selected");
+        selecionado = opt.dataset.qtd;
+      });
+    });
+
+    confirmar.addEventListener("click", () => {
+      if (!selecionado) {
+        alert("Selecione uma quantidade de pelúcias.");
+        return;
+      }
+      const msg = `Olá! Quero reservar a máquina com ${selecionado} pelúcias.`;
+      window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
+      overlay.classList.remove("active");
+      drawer.classList.remove("active");
+    });
+
+    // Modal imagens
     const modal = document.getElementById("imagemModal");
     const modalImg = document.getElementById("imgAmpliada");
     const closeBtn = document.querySelector(".close");
-
     document.querySelectorAll(".galeria img").forEach(img => {
       img.addEventListener("click", () => {
         modal.style.display = "block";
         modalImg.src = img.src;
       });
     });
-
     closeBtn.onclick = () => modal.style.display = "none";
     window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
   </script>
