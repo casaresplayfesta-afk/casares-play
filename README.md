@@ -231,8 +231,8 @@
     const btnPersonalizado = document.getElementById("btnPersonalizado");
 
     function atualizarPrecoPersonalizado(){
-      let qtd = parseInt(inputQtd.value) || 20;
-      if(qtd < 20) qtd = 20;
+      let qtd = parseInt(inputQtd.value);
+      if(isNaN(qtd) || qtd < 20) qtd = 20; // ajusta para mínimo 20
       inputQtd.value = qtd;
       const total = precoMaquina + qtd * precoPorPelucia;
       precoPersonalizado.textContent = `R$ ${total}`;
@@ -241,7 +241,8 @@
     inputQtd.addEventListener("input", atualizarPrecoPersonalizado);
 
     btnPersonalizado.addEventListener("click", () => {
-      const qtd = parseInt(inputQtd.value);
+      let qtd = parseInt(inputQtd.value);
+      if(isNaN(qtd) || qtd < 20) qtd = 20;
       const total = precoMaquina + qtd * precoPorPelucia;
       const msg = `Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
       window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
@@ -249,6 +250,7 @@
 
     atualizarPrecoPersonalizado();
 
+    // esconder header ao rolar
     let lastScroll = 0;
     const header = document.getElementById("header");
     window.addEventListener("scroll", () => {
@@ -257,6 +259,7 @@
       lastScroll = currentScroll;
     });
 
+    // Modal da galeria
     const modal = document.createElement('div');
     modal.id = 'imagemModal';
     modal.className = 'modal';
