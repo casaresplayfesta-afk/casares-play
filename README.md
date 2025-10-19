@@ -18,16 +18,16 @@ main{padding:180px 16px 40px;max-width:1100px;margin:0 auto;}
 .aviso-indisponivel{background:#fff3cd;color:#856404;border:1px solid #ffeeba;padding:12px 16px;border-radius:10px;text-align:center;margin:20px auto;max-width:800px;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
 h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-radius:8px;margin-bottom:16px;color:#111;}
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px;}
-.pkg{background: rgba(255,255,255,0.95); border-radius:12px; padding:16px;border:1px solid #ddd; box-shadow:0 5px 20px rgba(0,0,0,0.15); text-align:center; display:flex; flex-direction:column; justify-content:space-between; min-height:380px;}
+.pkg{background: rgba(255,255,255,0.95); border-radius:12px; padding:16px;border:1px solid #ddd; box-shadow:0 5px 20px rgba(0,0,0,0.15); text-align:center; display:flex; flex-direction:column; justify-content:space-between; min-height:450px;}
 .pkg:hover{transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.25);}
 .pkg h3{margin-bottom:8px;}
 .price{font-size:20px;color:var(--accent);font-weight:700;margin:8px 0;}
 .cta{display:inline-block;margin-top:auto;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:14px;transition:0.2s;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
 .cta.disabled{background:#ccc;cursor:not-allowed;box-shadow:none;}
 .cta:hover:not(.disabled){opacity:0.9;}
-.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:16px;}
-.galeria img{width:100%;height:230px;object-fit:cover;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.15); cursor:pointer; transition:transform 0.3s;}
-.galeria img:hover{transform:scale(1.05);}
+.fotos-pacote{display:flex;gap:8px;justify-content:center;margin:10px 0;}
+.fotos-pacote img{width:48%;height:120px;object-fit:cover;border-radius:10px;cursor:pointer;transition:transform 0.3s;}
+.fotos-pacote img:hover{transform:scale(1.05);}
 .modal{display:none;position:fixed;z-index:2000;inset:0;background:rgba(0,0,0,0.9);}
 .modal-content{margin:auto;display:block;width:80%;max-width:700px;border-radius:10px;}
 .close{position:absolute;top:20px;right:35px;color:#fff;font-size:40px;cursor:pointer;}
@@ -74,6 +74,10 @@ Mas você ainda pode comprar pelúcias conosco! 🧸
       <li>Entrega combinada via WhatsApp</li>
       <li>Frete grátis para Paracambi, Seropédica, Japeri e Conrado</li>
     </ul>
+    <div class="fotos-pacote">
+      <img src="pelucia10a.jpg" alt="Pelúcia kit 10 - foto 1">
+      <img src="pelucia10b.jpg" alt="Pelúcia kit 10 - foto 2">
+    </div>
     <a class="cta" href="https://wa.me/5521968884003?text=Olá! Quero comprar o kit com 10 pelúcias por R$150." target="_blank">Comprar pelo WhatsApp</a>
   </div>
 
@@ -85,17 +89,12 @@ Mas você ainda pode comprar pelúcias conosco! 🧸
       <li>Entrega combinada via WhatsApp</li>
       <li>Frete grátis nas cidades atendidas</li>
     </ul>
+    <div class="fotos-pacote">
+      <img src="pelucia20a.jpg" alt="Pelúcia kit 20 - foto 1">
+      <img src="pelucia20b.jpg" alt="Pelúcia kit 20 - foto 2">
+    </div>
     <a class="cta" href="https://wa.me/5521968884003?text=Olá! Quero comprar o kit com 20 pelúcias por R$280." target="_blank">Comprar pelo WhatsApp</a>
   </div>
-</div>
-
-<h2 class="fundo-branco" style="margin-top:40px;">Fotos das Pelúcias 🧸</h2>
-<div class="galeria">
-  <img src="pelucia1.jpg" alt="Pelúcia 1">
-  <img src="pelucia2.jpg" alt="Pelúcia 2">
-  <img src="pelucia3.jpg" alt="Pelúcia 3">
-  <img src="pelucia4.jpg" alt="Pelúcia 4">
-  <img src="pelucia5.jpg" alt="Pelúcia 5">
 </div>
 
 <h2 class="fundo-branco" style="margin-top:40px;">Fotos da Máquina</h2>
@@ -162,7 +161,7 @@ modal.innerHTML=`<span class="close">&times;</span><img class="modal-content" id
 document.body.appendChild(modal);
 const modalImg=document.getElementById("imgAmpliada");
 const closeBtn=modal.querySelector(".close");
-document.querySelectorAll(".galeria img").forEach(img=>{
+document.querySelectorAll("img").forEach(img=>{
   img.addEventListener("click",()=>{ 
     modal.style.display='block'; 
     modalImg.src=img.src; 
