@@ -17,8 +17,8 @@ header .lead{font-size:14px;opacity:.9;}
 main{padding:180px 16px 40px;max-width:1100px;margin:0 auto;}
 .aviso-indisponivel{background:#fff3cd;color:#856404;border:1px solid #ffeeba;padding:12px 16px;border-radius:10px;text-align:center;margin:20px auto;max-width:800px;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
 h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-radius:8px;margin-bottom:16px;color:#111;}
-.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px;}
-.pkg{background: rgba(255,255,255,0.95); border-radius:12px; padding:16px;border:1px solid #ddd; box-shadow:0 5px 20px rgba(0,0,0,0.15); text-align:center; display:flex; flex-direction:column; justify-content:space-between; min-height:450px;}
+.pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:16px;}
+.pkg{background: rgba(255,255,255,0.95); border-radius:12px; padding:16px;border:1px solid #ddd; box-shadow:0 5px 20px rgba(0,0,0,0.15); text-align:center; display:flex; flex-direction:column; justify-content:space-between; min-height:480px;}
 .pkg:hover{transform:translateY(-3px); box-shadow:0 8px 25px rgba(0,0,0,0.25);}
 .pkg h3{margin-bottom:8px;}
 .price{font-size:20px;color:var(--accent);font-weight:700;margin:8px 0;}
@@ -134,10 +134,10 @@ Mas você ainda pode comprar pelúcias conosco! 🧸
 <script>
 // Pacotes (somente visualização)
 const pacotes=[
-  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"] },
-  { nome:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"] },
-  { nome:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"] },
-  { nome:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"] }
+  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], fotos:["pelucia-base1.jpg","pelucia-base2.jpg"] },
+  { nome:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], fotos:["pelucia30a.jpg","pelucia30b.jpg"] },
+  { nome:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], fotos:["pelucia50a.jpg","pelucia50b.jpg"] },
+  { nome:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], fotos:["pelucia80a.jpg","pelucia80b.jpg"] }
 ];
 const container=document.getElementById("pricing-container");
 pacotes.forEach(p=>{
@@ -146,6 +146,10 @@ pacotes.forEach(p=>{
     <h3>${p.nome}</h3>
     <div class="price">R$ ${p.preco}</div>
     <ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <div class="fotos-pacote">
+      <img src="${p.fotos[0]}" alt="Pelúcia do pacote">
+      <img src="${p.fotos[1]}" alt="Pelúcia do pacote">
+    </div>
     <a class="cta disabled">Indisponível</a>
   `;
   container.appendChild(pkgDiv);
