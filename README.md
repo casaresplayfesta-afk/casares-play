@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CasaRes Play - Aluguel de Máquina de Pelúcia</title>
+<title>CasaRes Play - Aluguel e Venda de Pelúcias</title>
 <style>
 :root { --accent:#ff6b6b; --dark:#0f1724; --muted:#6b7280; }
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -14,7 +14,8 @@ header h1{font-size:24px;margin-bottom:4px;}
 header .lead{font-size:14px;opacity:.9;}
 .logo-container{display:flex;align-items:center;justify-content:center;gap:10px;}
 .logo{width:50px;height:50px;border-radius:50%;object-fit:cover;border:2px solid white;box-shadow:0 0 8px rgba(0,0,0,0.2);}
-main{padding:140px 16px 40px;max-width:1100px;margin:0 auto;}
+main{padding:180px 16px 40px;max-width:1100px;margin:0 auto;}
+.aviso-indisponivel{background:#fff3cd;color:#856404;border:1px solid #ffeeba;padding:12px 16px;border-radius:10px;text-align:center;margin:20px auto;max-width:800px;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
 h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-radius:8px;margin-bottom:16px;color:#111;}
 .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px;}
 .pkg{background: rgba(255,255,255,0.95); border-radius:12px; padding:16px;border:1px solid #ddd; box-shadow:0 5px 20px rgba(0,0,0,0.15); text-align:center; display:flex; flex-direction:column; justify-content:space-between; min-height:380px;}
@@ -22,12 +23,8 @@ h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-rad
 .pkg h3{margin-bottom:8px;}
 .price{font-size:20px;color:var(--accent);font-weight:700;margin:8px 0;}
 .cta{display:inline-block;margin-top:auto;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:14px;transition:0.2s;box-shadow:0 3px 10px rgba(0,0,0,0.2);}
-.cta:hover{opacity:0.9;}
-.gaveta-container{overflow:hidden;border-radius:12px;background:#fff; box-shadow:0 4px 15px rgba(0,0,0,0.2); margin-top:12px; padding:12px;}
-.gaveta{display:flex; justify-content:center; align-items:center; gap:8px;}
-.gaveta button{width:32px;height:32px;border:1px solid #ddd; background:#fff; font-size:20px; line-height:1; cursor:pointer; border-radius:6px; transition:0.2s;}
-.gaveta button:hover{background:var(--accent); color:#fff;}
-.gaveta input{width:60px;text-align:center;border:1px solid #ddd;border-radius:6px;padding:4px;font-size:14px;}
+.cta.disabled{background:#ccc;cursor:not-allowed;box-shadow:none;}
+.cta:hover:not(.disabled){opacity:0.9;}
 .galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:16px;}
 .galeria img{width:100%;height:230px;object-fit:cover;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.15); cursor:pointer; transition:transform 0.3s;}
 .galeria img:hover{transform:scale(1.05);}
@@ -54,18 +51,58 @@ footer{margin-top:30px;text-align:center;color:white;font-size:12px;}
 <img src="logo.jpg" class="logo" alt="Logo CasaRes Play">
 <h1>CasaRes Play</h1>
 </div>
-<p class="lead">Aluguel de máquinas de pelúcia — diversão garantida nas festas!</p>
+<p class="lead">Aluguel e venda de pelúcias — diversão garantida nas festas!</p>
 </header>
 
 <main>
+<div class="aviso-indisponivel">
+🚫 <strong>AVISO IMPORTANTE:</strong> A locação de máquinas está temporariamente <strong>indisponível por tempo indeterminado</strong>.<br>
+Os pacotes abaixo estão apenas para visualização.<br>
+Mas você ainda pode comprar pelúcias conosco! 🧸
+</div>
+
 <h2 class="fundo-branco">Pacotes com máquina (4 horas)</h2>
 <div class="pricing" id="pricing-container"></div>
 
+<h2 class="fundo-branco" style="margin-top:40px;">Venda de Pelúcias 🧸</h2>
+<div class="pricing">
+  <div class="pkg">
+    <h3>Kit com 10 Pelúcias</h3>
+    <div class="price">R$ 150</div>
+    <ul>
+      <li>Pelúcias sortidas de alta qualidade</li>
+      <li>Entrega combinada via WhatsApp</li>
+      <li>Frete grátis para Paracambi, Seropédica, Japeri e Conrado</li>
+    </ul>
+    <a class="cta" href="https://wa.me/5521968884003?text=Olá! Quero comprar o kit com 10 pelúcias por R$150." target="_blank">Comprar pelo WhatsApp</a>
+  </div>
+
+  <div class="pkg">
+    <h3>Kit com 20 Pelúcias</h3>
+    <div class="price">R$ 280</div>
+    <ul>
+      <li>20 pelúcias variadas</li>
+      <li>Entrega combinada via WhatsApp</li>
+      <li>Frete grátis nas cidades atendidas</li>
+    </ul>
+    <a class="cta" href="https://wa.me/5521968884003?text=Olá! Quero comprar o kit com 20 pelúcias por R$280." target="_blank">Comprar pelo WhatsApp</a>
+  </div>
+</div>
+
+<h2 class="fundo-branco" style="margin-top:40px;">Fotos das Pelúcias 🧸</h2>
+<div class="galeria">
+  <img src="pelucia1.jpg" alt="Pelúcia 1">
+  <img src="pelucia2.jpg" alt="Pelúcia 2">
+  <img src="pelucia3.jpg" alt="Pelúcia 3">
+  <img src="pelucia4.jpg" alt="Pelúcia 4">
+  <img src="pelucia5.jpg" alt="Pelúcia 5">
+</div>
+
 <h2 class="fundo-branco" style="margin-top:40px;">Fotos da Máquina</h2>
 <div class="galeria">
-<img src="maquina1.jpg" alt="Máquina 1">
-<img src="maquina2.jpg" alt="Máquina 2">
-<img src="maquina3.jpg" alt="Máquina 3">
+  <img src="maquina1.jpg" alt="Máquina 1">
+  <img src="maquina2.jpg" alt="Máquina 2">
+  <img src="maquina3.jpg" alt="Máquina 3">
 </div>
 
 <div class="avisos">
@@ -73,11 +110,11 @@ footer{margin-top:30px;text-align:center;color:white;font-size:12px;}
 <p>Tempo de locação: 4 horas. Caso precise de horário estendido ou transporte fora das regiões atendidas, entre em contato.</p>
 <h3>Onde entregamos</h3>
 <p>Paracambi, Seropédica, Japeri e Conrado — frete grátis nessas localidades.</p>
-<h3>Como reservar</h3>
+<h3>Como comprar</h3>
 <ol>
 <li>Entre em contato por WhatsApp: <a href="https://wa.me/5521968884003" target="_blank">(21) 96888-4003</a>.</li>
-<li>Combine data, horário e endereço de entrega.</li>
-<li>Pagamento: na hora de receber a máquina.</li>
+<li>Combine o kit e o endereço de entrega.</li>
+<li>Pagamento: na hora da entrega.</li>
 </ol>
 </div>
 </main>
@@ -92,80 +129,45 @@ footer{margin-top:30px;text-align:center;color:white;font-size:12px;}
 </div>
 
 <footer>
-<p>© CasaRes Play — Aluguel de máquinas de pelúcia.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
+<p>© CasaRes Play — Aluguel e venda de pelúcias.<br>Contato: (21) 96888-4003 — casaresplayfesta@gmail.com</p>
 </footer>
 
 <script>
-const precoMaquina=550;
-const precoPorPelucia=15;
+// Pacotes (somente visualização)
 const pacotes=[
-  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], whatsappMsg:"Olá, quero reservar apenas a máquina" },
-  { nome:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg:"Olá, quero reservar o pacote de 30 pelúcias com máquina" },
-  { nome:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg:"Olá, quero reservar o pacote de 50 pelúcias com máquina" },
-  { nome:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"], whatsappMsg:"Olá, quero reservar o pacote de 80 pelúcias com máquina" },
-  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"], personalizado:true }
+  { nome:"Somente máquina", preco:550,itens:["Uso da máquina por 4 horas","Sem pelúcias inclusas","Frete grátis (Paracambi, Seropédica, Japeri, Conrado)"] },
+  { nome:"30 pelúcias + máquina", preco:1000,itens:["30 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"] },
+  { nome:"50 pelúcias + máquina", preco:1300,itens:["50 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"] },
+  { nome:"80 pelúcias + máquina", preco:1750,itens:["80 pelúcias inclusas","Uso da máquina por 4 horas","Frete grátis"] }
 ];
-
 const container=document.getElementById("pricing-container");
 pacotes.forEach(p=>{
   const pkgDiv=document.createElement("div"); pkgDiv.classList.add("pkg");
-  if(p.personalizado){
-    pkgDiv.innerHTML=`
-    <h3>${p.nome}</h3>
-    <div class="price" id="precoPersonalizado">R$ ${p.preco}</div>
-    <ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
-    <div class="gaveta-container">
-      <div class="gaveta">
-        <button id="menos">-</button>
-        <input type="number" id="inputQtd" min="20" value="20">
-        <button id="mais">+</button>
-      </div>
-    </div>
-    <a class="cta" id="btnPersonalizado">Reservar pelo WhatsApp</a>
-    `;
-    container.appendChild(pkgDiv);
-    const inputQtd=pkgDiv.querySelector("#inputQtd");
-    const precoPersonalizado=pkgDiv.querySelector("#precoPersonalizado");
-    const btnPersonalizado=pkgDiv.querySelector("#btnPersonalizado");
-    const btnMais=pkgDiv.querySelector("#mais");
-    const btnMenos=pkgDiv.querySelector("#menos");
-    function atualizarPreco(){ 
-      let qtd=parseInt(inputQtd.value); if(isNaN(qtd)||qtd<20) qtd=20; inputQtd.value=qtd;
-      const total=precoMaquina+qtd*precoPorPelucia;
-      precoPersonalizado.textContent=`R$ ${total}`;
-    }
-    inputQtd.addEventListener("input",atualizarPreco);
-    btnMais.addEventListener("click",()=>{ inputQtd.value=parseInt(inputQtd.value)+1; atualizarPreco(); });
-    btnMenos.addEventListener("click",()=>{ inputQtd.value=parseInt(inputQtd.value)-1; atualizarPreco(); });
-    btnPersonalizado.addEventListener("click",()=>{
-      let qtd=parseInt(inputQtd.value); if(isNaN(qtd)||qtd<20) qtd=20;
-      const total=precoMaquina+qtd*precoPorPelucia;
-      const msg=`Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
-      window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`,"_blank");
-    });
-    atualizarPreco();
-  } else {
-    pkgDiv.innerHTML=`
+  pkgDiv.innerHTML=`
     <h3>${p.nome}</h3>
     <div class="price">R$ ${p.preco}</div>
     <ul>${p.itens.map(i=>`<li>${i}</li>`).join('')}</ul>
-    <a class="cta" href="https://wa.me/5521968884003?text=${encodeURIComponent(p.whatsappMsg)}" target="_blank">Reservar pelo WhatsApp</a>
-    `;
-    container.appendChild(pkgDiv);
-  }
+    <a class="cta disabled">Indisponível</a>
+  `;
+  container.appendChild(pkgDiv);
 });
 
 // Header oculto ao rolar
 let lastScroll=0; const header=document.getElementById("header");
 window.addEventListener("scroll",()=>{const s=window.pageYOffset; header.style.top=(s>lastScroll && s>100)?"-100px":"0"; lastScroll=s;});
 
-// Modal galeria
+// Modal para ampliar imagens
 const modal=document.createElement('div'); modal.id='imagemModal'; modal.className='modal';
 modal.innerHTML=`<span class="close">&times;</span><img class="modal-content" id="imgAmpliada">`;
 document.body.appendChild(modal);
 const modalImg=document.getElementById("imgAmpliada");
 const closeBtn=modal.querySelector(".close");
-document.querySelectorAll(".galeria img").forEach(img=>{ img.addEventListener("click",()=>{ modal.style.display='block'; modalImg.src=img.src; });});
+document.querySelectorAll(".galeria img").forEach(img=>{
+  img.addEventListener("click",()=>{ 
+    modal.style.display='block'; 
+    modalImg.src=img.src; 
+  });
+});
 closeBtn.onclick=()=>modal.style.display='none';
 window.onclick=e=>{if(e.target===modal) modal.style.display='none';};
 </script>
