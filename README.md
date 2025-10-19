@@ -67,10 +67,10 @@ Mas você ainda pode comprar pelúcias conosco! 🧸
 <h2 class="fundo-branco" style="margin-top:40px;">Venda de Pelúcias 🧸</h2>
 <div class="pricing">
   <div class="pkg">
-    <h3>Kit com 10 Pelúcias</h3>
+    <h3>Pelucia Coelho Feisty Mal Humurado - Muda Face Marrom-claro</h3>
     <div class="price">R$ 150</div>
     <ul>
-      <li>Pelúcias sortidas de alta qualidade</li>
+      <li>Pelúcia de alta qualidade</li>
       <li>Entrega combinada via WhatsApp</li>
       <li>Frete grátis para Paracambi, Seropédica, Japeri e Conrado</li>
     </ul>
@@ -82,10 +82,10 @@ Mas você ainda pode comprar pelúcias conosco! 🧸
   </div>
 
   <div class="pkg">
-    <h3>Kit com 20 Pelúcias</h3>
+    <h3>Pelucia Coelho Feisty Mal Humurado - Muda Face Marrom-claro</h3>
     <div class="price">R$ 280</div>
     <ul>
-      <li>20 pelúcias variadas</li>
+      <li>Pelúcia de alta qualidade</li>
       <li>Entrega combinada via WhatsApp</li>
       <li>Frete grátis nas cidades atendidas</li>
     </ul>
