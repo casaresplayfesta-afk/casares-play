@@ -78,7 +78,7 @@ Mas você ainda pode comprar pelúcias conosco! 🧸
       <img src="pelucia10a.jpg" alt="Pelúcia kit 10 - foto 1">
       <img src="pelucia10b.jpg" alt="Pelúcia kit 10 - foto 2">
     </div>
-    <a class="cta" href="https://wa.me/5521968884003?text=Olá! Quero comprar o kit com 10 pelúcias por R$150." target="_blank">Comprar pelo WhatsApp</a>
+    <a class="cta" href="https://wa.me/5521968884003?text=Olá! Quero comprar a Pelucia Coelho Feisty Mal Humurado - Muda Face Marrom-claro por R$150." target="_blank">Comprar pelo WhatsApp</a>
   </div>
 
   <div class="pkg">
