@@ -81,7 +81,6 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
 </header>
 
 <main>
-
   <!-- AVISO DE INDISPONIBILIDADE -->
   <div class="aviso-indisponivel">
     ⚠️ No momento, a locação das máquinas está <strong>indisponível por tempo indeterminado</strong>.<br>
@@ -90,7 +89,6 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
 
   <h2 class="fundo-branco">Pacotes com máquina (4 horas)</h2>
   <div class="pricing">
-
     <!-- PACOTE 1 -->
     <div class="pkg">
       <div class="swiper pacoteSwiper">
@@ -114,7 +112,6 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
         <a class="cta">Indisponível no momento</a>
       </div>
     </div>
-
     <!-- PACOTE 2 -->
     <div class="pkg">
       <div class="swiper pacoteSwiper">
@@ -138,36 +135,32 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
         <a class="cta">Indisponível no momento</a>
       </div>
     </div>
-
   </div>
-
   <!-- VENDA DE PELÚCIAS -->
   <h2 class="fundo-branco" style="margin-top:40px;">Venda de Pelúcias 🧸</h2>
   <div class="pricing">
-
     <div class="pkg">
       <div class="swiper pacoteSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="pelucia1.jpg" alt="Pelúcia 1"></div>
-          <div class="swiper-slide"><img src="pelucia2.jpg" alt="Pelúcia 2"></div>
+          <div class="swiper-slide"><img src="peluci10a.jpg" alt="Pelúcia 1"></div>
+          <div class="swiper-slide"><img src="peluci10b.jpg" alt="Pelúcia 2"></div>
         </div>
       </div>
       <div class="pkg-content">
-        <h3>Kit com 10 Pelúcias</h3>
+        <h3>Pelucia Coelho Feisty Mal Humurado - Muda Face Marrom-claros</h3>
         <div class="price">R$ 150</div>
         <div class="etiquetas">
           <span class="etiqueta">Entrega Fácil</span>
           <span class="etiqueta">Frete Grátis</span>
         </div>
         <ul>
-          <li>10 pelúcias sortidas</li>
+          <li>Pelúcia de alta qualidade</li>
           <li>Qualidade premium</li>
           <li>Envio combinado pelo WhatsApp</li>
         </ul>
         <a class="cta ativo" href="https://wa.me/5521968884003?text=Olá! Tenho interesse na *Pelúcia Coelho Feisty Mal Humorado - Muda Face Marrom-claro* do kit com 10 pelúcias por R$150." target="_blank">Comprar pelo WhatsApp</a>
       </div>
     </div>
-
     <div class="pkg">
       <div class="swiper pacoteSwiper">
         <div class="swiper-wrapper">
@@ -176,14 +169,14 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
         </div>
       </div>
       <div class="pkg-content">
-        <h3>Kit com 20 Pelúcias</h3>
+        <h3>Pelucia Coelho Feisty Mal Humurado - Muda Face Marrom-claros</h3>
         <div class="price">R$ 280</div>
         <div class="etiquetas">
           <span class="etiqueta">Entrega Fácil</span>
           <span class="etiqueta">Frete Grátis</span>
         </div>
         <ul>
-          <li>20 pelúcias variadas</li>
+          <li>Pelúcia de alta qualidade</li>
           <li>Alta qualidade e acabamento</li>
           <li>Envio combinado pelo WhatsApp</li>
         </ul>
