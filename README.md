@@ -65,11 +65,25 @@ h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-rad
   text-decoration: none;
   font-weight: 600;
   text-align: center;
-  cursor: not-allowed;
-  opacity: 0.6;
+  transition: all 0.2s;
 }
 .cta.ativo { cursor: pointer; opacity: 1; }
 .cta:hover.ativo { opacity: 0.9; }
+.cta.inativo {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.aviso-pacote {
+  background: #fff3cd;
+  color: #856404;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
 
 footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
 
@@ -123,7 +137,7 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
           <li>Uso da máquina por 4 horas</li>
           <li>Frete grátis</li>
         </ul>
-        <a class="cta">Indisponível no momento</a>
+        <a class="cta inativo">Indisponível no momento</a>
       </div>
     </div>
 
@@ -147,14 +161,13 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
           <li>Uso da máquina por 4 horas</li>
           <li>Frete grátis</li>
         </ul>
-        <a class="cta">Indisponível no momento</a>
+        <a class="cta inativo">Indisponível no momento</a>
       </div>
     </div>
 
   </div>
 
-  <!-- NOVA SEÇÃO: PACOTE PERSONALIZADO -->
-  <h2 class="fundo-branco" style="margin-top:40px;">Pacote Personalizado com Máquina 🧸</h2>
+  <h2 class="fundo-branco" style="margin-top:40px;">Pacote Personalizado 🎯</h2>
   <div class="pricing" id="personalizado-container"></div>
 
   <h2 class="fundo-branco" style="margin-top:40px;">Venda de Pelúcias 🧸</h2>
@@ -240,6 +253,7 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
 </footer>
 
 <script>
+// Inicializa os carrosseis existentes
 document.querySelectorAll('.pacoteSwiper').forEach((swiperEl)=>{
   new Swiper(swiperEl, {
     loop: true,
@@ -256,36 +270,57 @@ document.querySelectorAll('.pacoteSwiper').forEach((swiperEl)=>{
   });
 });
 
-// ===== PACOTE PERSONALIZADO =====
-const container = document.getElementById("personalizado-container");
+// ----- PACOTE PERSONALIZADO -----
+const container = document.querySelector('#personalizado-container');
+const disponivel = true; // altere para false se quiser mostrar como indisponível
+
+const precoMaquina = 700;
+const precoPorPelucia = 10;
 
 const pkgDiv = document.createElement('div');
 pkgDiv.classList.add('pkg');
 
-// preços base
-const precoMaquina = 550;  
-const precoPorPelucia = 15; 
-
 pkgDiv.innerHTML = `
-  <div class="pkg-content">
-    <h3>Monte seu pacote personalizado</h3>
-    <p>Escolha quantas pelúcias deseja com a máquina.</p>
-    <div style="margin:10px 0;">
-      <button id="menos" style="padding:4px 8px;">-</button>
-      <input type="number" id="inputQtd" value="20" min="20" style="width:50px;text-align:center;">
-      <button id="mais" style="padding:4px 8px;">+</button>
-      <span style="margin-left:10px;">pelúcias</span>
+  <h3>Pacote Personalizado 🧸</h3>
+  <div class="swiper pacoteSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="pelucia10a.jpg" alt="Máquina personalizada 1"></div>
+      <div class="swiper-slide"><img src="pelucia10b.jpg" alt="Máquina personalizada 2"></div>
+      <div class="swiper-slide"><img src="pelucia10c.jpg" alt="Máquina personalizada 3"></div>
     </div>
-    <div class="price" id="precoPersonalizado">R$ 0</div>
-    <a class="cta ativo" id="btnPersonalizado">Reservar pelo WhatsApp</a>
+    <div class="swiper-pagination"></div>
   </div>
+  <ul>
+    <li>Monte seu próprio pacote com o número de pelúcias que desejar.</li>
+    <li>Ideal para festas e eventos personalizados.</li>
+    <li>Entrega, instalação e suporte incluídos.</li>
+  </ul>
+  <div style="margin:10px 0;">
+    <button id="menos" style="padding:4px 8px;">-</button>
+    <input type="number" id="inputQtd" value="20" min="20" style="width:50px;text-align:center;">
+    <button id="mais" style="padding:4px 8px;">+</button>
+    <span style="margin-left:10px;">pelúcias</span>
+  </div>
+  <div class="price" id="precoPersonalizado">R$ 0</div>
+  <div id="avisoPacote" class="aviso-pacote" style="display:none;">⚠️ Este pacote está temporariamente indisponível.</div>
+  <a class="cta" id="btnPersonalizado"></a>
 `;
 
 container.appendChild(pkgDiv);
 
+// ativa carrossel
+new Swiper(pkgDiv.querySelector('.pacoteSwiper'), {
+  loop: true,
+  autoplay: { delay: 5000, disableOnInteraction: false },
+  slidesPerView: 1,
+  spaceBetween: 0,
+  pagination: { el: pkgDiv.querySelector('.swiper-pagination'), clickable: true },
+});
+
 const inputQtd = pkgDiv.querySelector("#inputQtd");
 const precoPersonalizado = pkgDiv.querySelector("#precoPersonalizado");
 const btnPersonalizado = pkgDiv.querySelector("#btnPersonalizado");
+const avisoPacote = pkgDiv.querySelector("#avisoPacote");
 const btnMais = pkgDiv.querySelector("#mais");
 const btnMenos = pkgDiv.querySelector("#menos");
 
@@ -297,22 +332,27 @@ function atualizarPreco() {
   precoPersonalizado.textContent = `R$ ${total}`;
 }
 
+if (disponivel) {
+  btnPersonalizado.textContent = "Reservar pelo WhatsApp";
+  btnPersonalizado.classList.add("ativo");
+  avisoPacote.style.display = "none";
+  btnPersonalizado.addEventListener("click", () => {
+    let qtd = parseInt(inputQtd.value);
+    if (isNaN(qtd) || qtd < 20) qtd = 20;
+    const total = precoMaquina + qtd * precoPorPelucia;
+    const msg = `Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
+    window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
+  });
+} else {
+  btnPersonalizado.textContent = "Indisponível no momento";
+  btnPersonalizado.classList.add("inativo");
+  avisoPacote.style.display = "block";
+  btnPersonalizado.style.pointerEvents = "none";
+}
+
 inputQtd.addEventListener("input", atualizarPreco);
-btnMais.addEventListener("click", () => {
-  inputQtd.value = parseInt(inputQtd.value) + 1;
-  atualizarPreco();
-});
-btnMenos.addEventListener("click", () => {
-  inputQtd.value = parseInt(inputQtd.value) - 1;
-  atualizarPreco();
-});
-btnPersonalizado.addEventListener("click", () => {
-  let qtd = parseInt(inputQtd.value);
-  if (isNaN(qtd) || qtd < 20) qtd = 20;
-  const total = precoMaquina + qtd * precoPorPelucia;
-  const msg = `Olá! Quero reservar a máquina com ${qtd} pelúcias (total R$ ${total}).`;
-  window.open(`https://wa.me/5521968884003?text=${encodeURIComponent(msg)}`, "_blank");
-});
+btnMais.addEventListener("click", () => { inputQtd.value = parseInt(inputQtd.value) + 1; atualizarPreco(); });
+btnMenos.addEventListener("click", () => { inputQtd.value = parseInt(inputQtd.value) - 1; atualizarPreco(); });
 
 atualizarPreco();
 </script>
