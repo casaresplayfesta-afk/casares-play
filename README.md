@@ -12,11 +12,34 @@
 <style>
 :root { --accent:#ff6b6b; --dark:#0f1724; --muted:#6b7280; }
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Inter,sans-serif;background:#f8fafc;color:#0b1220;line-height:1.5;}
-header{background:linear-gradient(90deg,var(--accent),#ff9a76);color:white;text-align:center;padding:20px;position:fixed;top:0;left:0;right:0;z-index:1000;}
+body{
+  font-family:Inter,sans-serif;
+  background: url('fundo.jpg') no-repeat center center fixed; /* imagem de fundo */
+  background-size: cover; /* cobre toda a tela */
+  color:#0b1220;
+  line-height:1.5;
+}
+header{
+  background:linear-gradient(90deg,var(--accent),#ff9a76);
+  color:white;
+  text-align:center;
+  padding:20px;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+}
 header h1{font-size:24px;margin-bottom:4px;}
 main{padding:140px 16px 40px;max-width:1100px;margin:0 auto;}
-h2.fundo-branco{background:#fff;display:inline-block;padding:6px 12px;border-radius:8px;margin-bottom:16px;color:#111;}
+h2.fundo-branco{
+  background:#fff;
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:8px;
+  margin-bottom:16px;
+  color:#111;
+}
 .aviso-indisponivel{
   background:#fff3cd;
   border:1px solid #ffeeba;
