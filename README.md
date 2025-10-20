@@ -142,8 +142,8 @@ footer{margin-top:30px;text-align:center;color:#555;font-size:12px;}
     <div class="pkg">
       <div class="swiper pacoteSwiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="peluci10a.jpg" alt="Pelúcia 1"></div>
-          <div class="swiper-slide"><img src="peluci10b.jpg" alt="Pelúcia 2"></div>
+          <div class="swiper-slide"><img src="pelucia10a.jpg" alt="Pelúcia 1"></div>
+          <div class="swiper-slide"><img src="pelucia10b.jpg" alt="Pelúcia 2"></div>
         </div>
       </div>
       <div class="pkg-content">
